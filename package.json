@@ -1,8 +1,8 @@
 {
-  "name": "react-material-design-lite",
-  "version": "0.6.0",
+  "name": "RMD",
+  "version": "0.1.0",
   "description": "React component wrappers around Google's Material Design Lite library",
-  "author": "Blaine Bublitz <blaine@iceddev.com> (http://iceddev.com)",
+  "author": "Vincent Zhang <vincentzhang1209@gmail.com> ",
   "contributors": [],
   "repository": "iceddev/react-material-design-lite",
   "license": "MIT",
@@ -10,12 +10,8 @@
     "node": ">= 0.10"
   },
   "main": "index.js",
-  "files": [
-    "LICENSE",
-    "index.js"
-  ],
   "scripts": {
-    "test": "eslint src/*.js",
+    "test": "mocha --require ignore-styles test.setup.js src/**/*.spec.js",
     "build": "npm run clean && webpack --config webpack.config.babel.js",
     "clean": "rimraf index.js && rimraf app.css",
     "start": "nodemon --watch ./src --delay 250ms --exec 'npm run build && npm run dev:example'",
@@ -52,7 +48,15 @@
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.0"
+    "webpack-dev-server": "^1.14.0",
+    "jsdom": "^9.2.1",
+    "mocha": "^2.5.3",
+    "chai": "^3.5.0",
+    "enzyme": "^2.3.0",
+    "sinon": "^1.17.4",
+    "babel-register": "^6.4.3",
+    "react-addons-test-utils": "^0.14.7",
+    "babel-preset-airbnb": "^1.0.1"
   },
   "keywords": [
     "material",
