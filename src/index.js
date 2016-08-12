@@ -1,5 +1,6 @@
 import './icons.css';
 import 'material-design-lite/material.min.css';
+import './app.scss'
 
 import Badge from './badge'
 import Demo from './demo/demo'
