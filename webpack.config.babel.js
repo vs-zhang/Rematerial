@@ -40,7 +40,10 @@ module.exports = {
         exclude: [
           /node_modules/
         ],
-        loader: 'babel-loader'
+        loader: 'babel',
+        query: {
+          presets: ["es2015", "stage-0", "react"]
+        }
       },
       {
         test: require.resolve('material-design-lite/material.min'),
