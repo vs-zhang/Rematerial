@@ -11,6 +11,6 @@ function render(){
 }
 
 render();
-setInterval(render, 2500);
+setInterval(render, 5000);
 
 document.body.appendChild(root);

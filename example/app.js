@@ -1,15 +1,16 @@
 import React from 'react'
-import '../app.css'
 
 import {
   Badge,
   Demo,
-  AppBar
+  AppBar,
+  Divider,
+  Chip
 } from '../';
 
 const exampleStyle = {
   margin: 'auto',
-  width: '1200',
+  width: '1200px',
   border: '1px solid black',
   padding: '10px'
 };
@@ -26,5 +27,11 @@ export const App = () => (
 
         <h4>Demo</h4>
         <Demo />
+
+        <Divider />
+
+        <Chip>
+          Chip
+        </Chip>
     </div>
 );
