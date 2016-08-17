@@ -7,5 +7,6 @@ import Demo from './demo/demo'
 import AppBar from './appbar'
 import Divider from './divider/divider'
 import Chip from './chip/chip'
+import Button from './button/button'
 
-export { Badge, Demo, AppBar, Divider, Chip }
+export { Badge, Demo, AppBar, Divider, Chip, Button }

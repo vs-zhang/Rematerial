@@ -1,12 +1,15 @@
 import React, { Component, PropTypes } from 'react'
 
-export default class Chip extends Component {
+export default class Button extends Component {
   render() {
     const { children, ...reactProps } = this.props;
     return (
-      <span {...reactProps} className="rmd__chip">
+      <button
+        {...reactProps}
+        className="rmd__button"
+      >
         {children}
-      </span>
+      </button>
     )
   }
 }

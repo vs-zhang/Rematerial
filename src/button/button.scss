@@ -1,0 +1,17 @@
+.rmd__button {
+  line-height: 36px;
+  padding: 0 16px;
+  border: none;
+  font-size: 14px;
+  height: 36px;
+  vertical-align: middle;
+  outline: 0;
+  cursor: pointer;
+  background: none;
+  min-width: 64px;
+  color: black;
+  text-align: center;
+  &:hover {
+    background-color: rgba(158, 158, 158, 0.2);
+  }
+}

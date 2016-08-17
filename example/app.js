@@ -5,7 +5,8 @@ import {
   Demo,
   AppBar,
   Divider,
-  Chip
+  Chip,
+  Button
 } from '../';
 
 const exampleStyle = {
@@ -33,5 +34,8 @@ export const App = () => (
         <Chip>
           Chip
         </Chip>
+
+        <h4>Button</h4>
+        <Button>Button</Button>
     </div>
 );
