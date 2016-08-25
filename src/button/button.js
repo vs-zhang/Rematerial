@@ -48,7 +48,6 @@ export default class Button extends Component {
   render() {
     const { children, type, ripple, ...reactProps } = this.props;
     let rippleContainer;
-    console.log(ripple);
     if(ripple) {
       const style = {
         top: this.state.top,
