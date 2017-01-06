@@ -1,68 +1,69 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
-export default class Button extends Component {
+class Button extends Component {
 
-  constructor(props) {
-    super(props);
+  static propTypes = {
+    children: PropTypes.element.isRequired,
+    type: PropTypes.oneOf(['flat', 'raised', 'fab']),
+    ripple: PropTypes.oneOf([true, false]),
+  };
+
+  static defaultProps = {
+    type: 'flat',
+    ripple: true,
+  };
+
+  constructor(props, content) {
+    super(props, content);
 
     this.state = {
-      isRippling: false
+      isRippling: false,
     };
 
     this.handleMouseDown = ::this.handleMouseDown;
     this.handleMouseUp = ::this.handleMouseUp;
   }
 
-  static propTypes = {
-    type: PropTypes.oneOf(['flat', 'raised', 'fab']),
-    ripple: PropTypes.oneOf([true, false])
-  };
-
-  static defaultProps = {
-    type: 'flat',
-    ripple: true
-  };
-
   handleMouseDown(e) {
     const x = e.nativeEvent.offsetX;
     const y = e.nativeEvent.offsetY;
     const elWidth = e.target.offsetWidth;
     const elHeight = e.target.offsetHeight;
-    const diagonal = Math.sqrt(elWidth*elWidth + elHeight*elHeight);
-    const rippleLength = diagonal*2;
+    const diagonal = Math.sqrt((elWidth ** 2) + (elHeight ** 2));
+    const rippleLength = diagonal * 2;
     this.setState({
-      top: y - rippleLength/2,
-      left: x - rippleLength/2,
+      top: y - (rippleLength / 2),
+      left: x - (rippleLength / 2),
       length: rippleLength,
-      isRippling: true
-    })
+      isRippling: true,
+    });
   }
 
-  handleMouseUp(e) {
+  handleMouseUp() {
     this.setState({
-      isRippling: false
-    })
+      isRippling: false,
+    });
   }
 
   render() {
     const { children, type, ripple, ...reactProps } = this.props;
     let rippleContainer;
-    if(ripple) {
+    if (ripple) {
       const style = {
         top: this.state.top,
         left: this.state.left,
         width: this.state.length,
         height: this.state.length,
-        display: this.state.isRippling ? 'block' : 'none'
+        display: this.state.isRippling ? 'block' : 'none',
       };
-      rippleContainer = <span className="rmd-ripple" style={style}></span>;
+      rippleContainer = <span className="rmd-ripple" style={style} />;
     }
 
     const btnClass = classNames({
-      'rmd__button': true,
+      rmd__button: true,
       'rmd__button--fab': type === 'fab',
-      'rmd__button--raised': type === 'raised'
+      'rmd__button--raised': type === 'raised',
     });
 
 
@@ -76,6 +77,8 @@ export default class Button extends Component {
         { children }
         { rippleContainer}
       </button>
-    )
+    );
   }
 }
+
+export default Button;

@@ -1,7 +1,7 @@
-import React from 'react'
-import { shallow } from 'enzyme'
-import { expect } from 'chai'
-import Chip from './chip'
+import React from 'react';
+import { shallow } from 'enzyme';
+import { expect } from 'chai';
+import Chip from './chip';
 
 describe('<Chip />', () => {
   it('should have class rmd__chip', () => {

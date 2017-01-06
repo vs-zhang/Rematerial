@@ -1,11 +1,13 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react';
 
-export default class Divider extends Component {
+class Divider extends Component {
   render() {
     return (
       <div>
         <hr />
       </div>
-    )
+    );
   }
 }
+
+export default Divider;

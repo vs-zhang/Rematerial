@@ -1,9 +1,7 @@
 import React from 'react'
 
 import {
-  Badge,
   Demo,
-  AppBar,
   Divider,
   Chip,
   Button
@@ -19,10 +17,6 @@ const exampleStyle = {
 export const App = () => (
     <div style={exampleStyle}>
         <h1>Examples</h1>
-        <h4>Badges</h4>
-        <Badge data-badge="5">Badge</Badge>
-        <h4>AppBar</h4>
-        <AppBar />
         <Divider />
         <Chip>
           Chip
