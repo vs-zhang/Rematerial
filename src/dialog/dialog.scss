@@ -1,0 +1,31 @@
+.rmd-dialog {
+  background-color: white;
+  margin: 0 auto;
+  width: 75%;
+  max-width: 768px;
+}
+
+.rmd-dialog__title {
+  margin: 0;
+  padding: 24px 24px 20px;
+  font-size: 22px;
+  line-height: 32px;
+  font-weight: 400;
+  border-bottom: none;
+}
+
+.rmd-dialog__content {
+  font-size: 16px;
+  padding: 0 24px 24px;
+  box-sizing: border-box;
+  overflow-y: hidden;
+  max-height: 168px;
+}
+
+.rmd-dialog__actions {
+  padding: 8px;
+  width: 100%;
+  text-align: right;
+  margin-top: 0;
+  box-sizing: border-box;
+}

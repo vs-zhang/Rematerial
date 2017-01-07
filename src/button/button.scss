@@ -14,6 +14,10 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  margin: 0 10px;
+  &:hover{
+    background-color: rgba(158,158,158,.2);
+  }
 }
 
 .rmd__button--fab {
@@ -28,9 +32,17 @@
   font-size: 24px;
   background-color: #ff4081;
   color: white;
+  &:hover{
+    background-color: #ff4081;
+  }
   .rmd-ripple {
     background-color: white;
   }
+}
+
+.rmd__button--raised {
+  background: rgba(158,158,158,.2);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
 }
 
 .rmd-ripple {
@@ -38,7 +50,7 @@
   border-radius: 50%;
   width: 120px;
   height: 120px;
-  background: lime;
+  background-color: rgba(0,0,0,.3);
   animation: rmd-ripple-animation .2s ease-out forwards;
   display: none;
   overflow: hidden;

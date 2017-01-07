@@ -20,8 +20,11 @@ module.exports = {
         exclude: [
           /node_modules/
         ],
-        loader: 'babel-loader'
-      }
+        loader: 'babel',
+        query: {
+          presets: ["es2015", "stage-0", "react"]
+        }
+      },
     ]
   },
   bail: true

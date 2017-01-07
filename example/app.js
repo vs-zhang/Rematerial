@@ -1,21 +1,48 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react';
 
 import {
   Demo,
   Divider,
   Chip,
-  Button
+  Button,
+  Dialog,
 } from '../';
 
 const exampleStyle = {
   margin: 'auto',
   width: '1200px',
   border: '1px solid black',
-  padding: '10px'
+  padding: '10px 0',
+  minHeight: '600px',
 };
 
-export const App = () => (
-    <div style={exampleStyle}>
+class App extends Component {
+  constructor(props, content) {
+    super(props);
+    this.state = {
+      open: false,
+    };
+
+    this.openDialog = ::this.openDialog;
+    this.closeDialog = ::this.closeDialog;
+  }
+
+  openDialog() {
+    this.setState({open: true});
+  }
+
+  closeDialog() {
+    this.setState({open: false});
+  }
+
+  render() {
+    const actions = [
+      <Button onClick={this.closeDialog}>Cancel</Button>,
+      <Button>Submit</Button>
+    ];
+
+    return (
+      <div style={exampleStyle}>
         <h1>Examples</h1>
         <Divider />
         <Chip>
@@ -23,10 +50,18 @@ export const App = () => (
         </Chip>
         <h4>Button</h4>
         <Button type="flat">Button</Button>
-        <Button type="flat" ripple={false}>Button false</Button>
-        <Button type="fab">
-          +
-        </Button>
-        <Button type="raised">Button raised</Button>
-    </div>
-);
+        <Button type="flat" ripple={false}>Button No Ripple</Button>
+        <Button type="fab">+</Button>
+        <Button type="raised">Raise Button</Button>
+        <Divider />
+        <Button type="flat" onClick={this.openDialog}>Dialog</Button>
+        <Dialog
+          open={this.state.open}
+          actions={actions}
+        />
+      </div>
+    )
+  }
+}
+
+export default App;
