@@ -6,6 +6,8 @@ import {
   Chip,
   Button,
   Dialog,
+  Card,
+  Slider,
 } from '../';
 
 const exampleStyle = {
@@ -59,6 +61,12 @@ class App extends Component {
           open={this.state.open}
           actions={actions}
         />
+        <Divider />
+        <Card />
+        <Divider />
+        <Slider />
+        <Slider min="5" max="20" step="0.5"/>
+        <Slider min="0" max="2" step="0.5"/>
       </div>
     )
   }

@@ -6,5 +6,7 @@ import Divider from './divider/divider';
 import Chip from './chip/chip';
 import Button from './button/button';
 import Dialog from './dialog/dialog';
+import Card from './card/card';
+import Slider from './slider/slider';
 
-export { Demo, Divider, Chip, Button, Dialog };
+export { Demo, Divider, Chip, Button, Dialog, Card, Slider };

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Overlay from '../shared/overlay';
 
-class Dialogs extends Component {
+class Dialog extends Component {
   static propTypes = {
     open: PropTypes.bool.isRequired,
     actions: PropTypes.element.isRequired,
@@ -34,4 +34,4 @@ class Dialogs extends Component {
   }
 }
 
-export default Dialogs;
+export default Dialog;
