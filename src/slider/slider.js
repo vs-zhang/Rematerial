@@ -5,11 +5,14 @@ class Slider extends Component {
     min: PropTypes.number,
     max: PropTypes.number,
     step: PropTypes.number,
+    value: PropTypes.number,
+    onChange: PropTypes.func,
   };
 
   static defaultProps = {
     min: 0,
     max: 100,
+    value: 0,
     step: 1,
   };
 
@@ -19,14 +22,18 @@ class Slider extends Component {
     const range = max - min;
 
     this.state = {
-      value: max - (range / 2),
+      value: this.props.value || max - (range / 2),
     };
 
     this.handleChange = ::this.handleChange;
   }
 
   handleChange(e) {
-    this.setState({ value: e.target.value });
+    const value = e.target.value;
+    this.setState({ value });
+    if (this.props.onChange) {
+      this.props.onChange(e, value);
+    }
   }
 
   render() {

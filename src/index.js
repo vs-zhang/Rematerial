@@ -8,5 +8,6 @@ import Button from './button/button';
 import Dialog from './dialog/dialog';
 import Card from './card/card';
 import Slider from './slider/slider';
+import Toggle from './toggle/toggle';
 
-export { Demo, Divider, Chip, Button, Dialog, Card, Slider };
+export { Demo, Divider, Chip, Button, Dialog, Card, Slider, Toggle };

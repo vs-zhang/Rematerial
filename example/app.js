@@ -8,6 +8,7 @@ import {
   Dialog,
   Card,
   Slider,
+  Toggle,
 } from '../';
 
 const exampleStyle = {
@@ -23,10 +24,12 @@ class App extends Component {
     super(props);
     this.state = {
       open: false,
+      sliderValue: 20,
     };
 
     this.openDialog = ::this.openDialog;
     this.closeDialog = ::this.closeDialog;
+    this.handleChangeSlider = ::this.handleChangeSlider;
   }
 
   openDialog() {
@@ -35,6 +38,10 @@ class App extends Component {
 
   closeDialog() {
     this.setState({open: false});
+  }
+
+  handleChangeSlider(e, value) {
+    this.setState({ sliderValue: value });
   }
 
   render() {
@@ -50,6 +57,7 @@ class App extends Component {
         <Chip>
           Chip
         </Chip>
+        <Divider />
         <h4>Button</h4>
         <Button type="flat">Button</Button>
         <Button type="flat" ripple={false}>Button No Ripple</Button>
@@ -64,9 +72,13 @@ class App extends Component {
         <Divider />
         <Card />
         <Divider />
-        <Slider />
-        <Slider min="5" max="20" step="0.5"/>
-        <Slider min="0" max="2" step="0.5"/>
+        <Slider
+          value={this.state.sliderValue}
+          onChange={this.handleChangeSlider}
+        />
+        <p>The value of slider is {this.state.sliderValue}</p>
+        <Divider />
+        <Toggle />
       </div>
     )
   }
