@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-class Toggle extends Component {
+class RadioButton extends Component {
   static propTypes = {
     value: PropTypes.bool,
   };
@@ -8,10 +8,10 @@ class Toggle extends Component {
   render() {
     return (
       <div>
-        toggle
+        Radio Button
       </div>
     );
   }
 }
 
-export default Toggle;
+export default RadioButton;

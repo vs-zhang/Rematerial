@@ -8,7 +8,8 @@ import {
   Dialog,
   Card,
   Slider,
-  Toggle,
+  Checkbox,
+  Tooltip,
 } from '../';
 
 const exampleStyle = {
@@ -25,11 +26,13 @@ class App extends Component {
     this.state = {
       open: false,
       sliderValue: 20,
+      checkboxValue: true,
     };
 
     this.openDialog = ::this.openDialog;
     this.closeDialog = ::this.closeDialog;
     this.handleChangeSlider = ::this.handleChangeSlider;
+    this.handleClickCheckbox = ::this.handleClickCheckbox;
   }
 
   openDialog() {
@@ -41,7 +44,11 @@ class App extends Component {
   }
 
   handleChangeSlider(e, value) {
-    this.setState({ sliderValue: value });
+    this.setState({sliderValue: value});
+  }
+
+  handleClickCheckbox(e, value) {
+    this.setState({checkboxValue: value});
   }
 
   render() {
@@ -60,7 +67,6 @@ class App extends Component {
         <Divider />
         <h4>Button</h4>
         <Button type="flat">Button</Button>
-        <Button type="flat" ripple={false}>Button No Ripple</Button>
         <Button type="fab">+</Button>
         <Button type="raised">Raise Button</Button>
         <Divider />
@@ -78,7 +84,14 @@ class App extends Component {
         />
         <p>The value of slider is {this.state.sliderValue}</p>
         <Divider />
-        <Toggle />
+        <Checkbox
+          isChecked={this.state.checkboxValue}
+          label="Checkbox"
+          onCheck={this.handleClickCheckbox}
+        />
+        <p>The value of checkbox is {this.state.checkboxValue.toString()}</p>
+        <Divider />
+        <Tooltip />
       </div>
     )
   }

@@ -8,6 +8,18 @@ import Button from './button/button';
 import Dialog from './dialog/dialog';
 import Card from './card/card';
 import Slider from './slider/slider';
-import Toggle from './toggle/toggle';
+import { Checkbox, RadioButton } from './toggle';
+import Tooltip from './tooltip/tooltip';
 
-export { Demo, Divider, Chip, Button, Dialog, Card, Slider, Toggle };
+export {
+  Demo,
+  Divider,
+  Chip,
+  Button,
+  Dialog,
+  Card,
+  Slider,
+  Checkbox,
+  RadioButton,
+  Tooltip,
+};
