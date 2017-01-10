@@ -73,7 +73,6 @@ class App extends Component {
           Chip
         </Chip>
         <Divider />
-        <h4>Button</h4>
         <Button type="flat">Button</Button>
         <Button type="fab">+</Button>
         <Button type="raised">Raise Button</Button>
@@ -82,7 +81,9 @@ class App extends Component {
         <Dialog
           open={this.state.open}
           actions={actions}
-        />
+        >
+          hello world
+        </Dialog>
         <Divider />
         <Card />
         <Divider />
