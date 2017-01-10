@@ -38,7 +38,6 @@ class Checkbox extends Component {
     return (
       <label className={checkboxClass} >
         <input
-
           type="checkbox"
           className="rmd-checkbox__input"
           checked={this.state.isChecked}

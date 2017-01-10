@@ -9,6 +9,8 @@ import {
   Card,
   Slider,
   Checkbox,
+  RadioButton,
+  RadioButtonGroup,
   Tooltip,
 } from '../';
 
@@ -27,12 +29,14 @@ class App extends Component {
       open: false,
       sliderValue: 20,
       checkboxValue: true,
+      radioValue: 'first',
     };
 
     this.openDialog = ::this.openDialog;
     this.closeDialog = ::this.closeDialog;
     this.handleChangeSlider = ::this.handleChangeSlider;
     this.handleClickCheckbox = ::this.handleClickCheckbox;
+    this.handleChangeRadio = ::this.handleChangeRadio;
   }
 
   openDialog() {
@@ -49,6 +53,10 @@ class App extends Component {
 
   handleClickCheckbox(e, value) {
     this.setState({checkboxValue: value});
+  }
+
+  handleChangeRadio(e, value) {
+    this.setState({radioValue: value});
   }
 
   render() {
@@ -90,6 +98,22 @@ class App extends Component {
           onCheck={this.handleClickCheckbox}
         />
         <p>The value of checkbox is {this.state.checkboxValue.toString()}</p>
+
+        <RadioButtonGroup
+          name="options"
+          selected={this.state.radioValue}
+          onCheck={this.handleChangeRadio}
+        >
+          <RadioButton
+            value="first"
+            label="First"
+          />
+          <RadioButton
+            value="second"
+            label="Second"
+          />
+        </RadioButtonGroup>
+        <p>The value of radio group is {this.state.radioValue}</p>
         <Divider />
         <Tooltip />
       </div>

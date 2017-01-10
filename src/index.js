@@ -1,4 +1,3 @@
-import 'material-design-lite/material.min.css';
 import './app.scss';
 
 import Demo from './demo/demo';
@@ -8,7 +7,7 @@ import Button from './button/button';
 import Dialog from './dialog/dialog';
 import Card from './card/card';
 import Slider from './slider/slider';
-import { Checkbox, RadioButton } from './toggle';
+import { Checkbox, RadioButton, RadioButtonGroup } from './toggle';
 import Tooltip from './tooltip/tooltip';
 
 export {
@@ -21,5 +20,6 @@ export {
   Slider,
   Checkbox,
   RadioButton,
+  RadioButtonGroup,
   Tooltip,
 };
