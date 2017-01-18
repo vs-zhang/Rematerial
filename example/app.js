@@ -12,6 +12,7 @@ import {
   RadioButton,
   RadioButtonGroup,
   Tooltip,
+  Snackbar,
 } from '../';
 
 const exampleStyle = {
@@ -30,6 +31,7 @@ class App extends Component {
       sliderValue: 20,
       checkboxValue: true,
       radioValue: 'first',
+      openSnackbar: false,
     };
 
     this.openDialog = ::this.openDialog;
@@ -37,6 +39,7 @@ class App extends Component {
     this.handleChangeSlider = ::this.handleChangeSlider;
     this.handleClickCheckbox = ::this.handleClickCheckbox;
     this.handleChangeRadio = ::this.handleChangeRadio;
+    this.handleClickSnackbar = ::this.handleClickSnackbar;
   }
 
   openDialog() {
@@ -59,10 +62,17 @@ class App extends Component {
     this.setState({radioValue: value});
   }
 
+  handleClickSnackbar(e) {
+    this.setState({openSnackbar: true});
+  }
+
   render() {
-    const actions = [
+    const dialogActions = [
       <Button onClick={this.closeDialog}>Cancel</Button>,
       <Button>Submit</Button>
+    ];
+    const cardActions = [
+      <Button>GET STARTED</Button>,
     ];
 
     return (
@@ -80,12 +90,16 @@ class App extends Component {
         <Button type="flat" onClick={this.openDialog}>Dialog</Button>
         <Dialog
           open={this.state.open}
-          actions={actions}
+          actions={dialogActions}
         >
           hello world
         </Dialog>
         <Divider />
-        <Card />
+        <Card
+          title="Welcome"
+          text="hello world"
+          actions={cardActions}
+        />
         <Divider />
         <Slider
           value={this.state.sliderValue}
@@ -115,6 +129,13 @@ class App extends Component {
           />
         </RadioButtonGroup>
         <p>The value of radio group is {this.state.radioValue}</p>
+        <Divider />
+        <a onClick={this.handleClickSnackbar}>haha</a>
+        <Snackbar
+          open={this.state.openSnackbar}
+          duration="0.5"
+          text="hello"
+        />
         <Divider />
         <Tooltip />
       </div>

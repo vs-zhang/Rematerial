@@ -4,6 +4,7 @@
 }
 
 @import "shared/overlay";
+@import "shared/paper";
 @import "demo/demo";
 @import "divider/divider";
 @import "chip/chip";
@@ -14,3 +15,4 @@
 @import "toggle/checkbox";
 @import "toggle/radio_button";
 @import "tooltip/tooltip";
+@import "snackbar/snackbar";
