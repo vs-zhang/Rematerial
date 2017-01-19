@@ -15,12 +15,13 @@ import {
   Snackbar,
 } from '../';
 
+import WelcomeImg from './asset/welcome_card.jpg';
+
 const exampleStyle = {
   margin: 'auto',
-  width: '1200px',
-  border: '1px solid black',
   padding: '10px 0',
-  minHeight: '600px',
+  minHeight: '1000px',
+  backgroundColor: '#FAFAFA',
 };
 
 class App extends Component {
@@ -87,7 +88,7 @@ class App extends Component {
         <Button type="fab">+</Button>
         <Button type="raised">Raise Button</Button>
         <Divider />
-        <Button type="flat" onClick={this.openDialog}>Dialog</Button>
+        <Button type="raised" onClick={this.openDialog}>Dialog</Button>
         <Dialog
           open={this.state.open}
           actions={dialogActions}
@@ -97,8 +98,9 @@ class App extends Component {
         <Divider />
         <Card
           title="Welcome"
-          text="hello world"
+          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia..."
           actions={cardActions}
+          img={WelcomeImg}
         />
         <Divider />
         <Slider
@@ -130,14 +132,45 @@ class App extends Component {
         </RadioButtonGroup>
         <p>The value of radio group is {this.state.radioValue}</p>
         <Divider />
-        <a onClick={this.handleClickSnackbar}>haha</a>
+        <Button type="raised" onClick={this.handleClickSnackbar}>Show Snackbar</Button>
         <Snackbar
           open={this.state.openSnackbar}
           duration="0.5"
           text="hello"
         />
         <Divider />
-        <Tooltip />
+        <div>
+          <Tooltip
+            text="hello top"
+            placement="top"
+          >
+            <a href="#">Tooltip top</a>
+          </Tooltip>
+        </div>
+        <div>
+          <Tooltip
+            text="hello right"
+            placement="right"
+          >
+            <a href="#">Tooltip right</a>
+          </Tooltip>
+        </div>
+        <div>
+          <Tooltip
+            text="hello bottom"
+            placement="bottom"
+          >
+            <a href="#">Tooltip bottom</a>
+          </Tooltip>
+        </div>
+        <div>
+          <Tooltip
+            text="hello left"
+            placement="left"
+          >
+            <a href="#">Tooltip left</a>
+          </Tooltip>
+        </div>
       </div>
     )
   }

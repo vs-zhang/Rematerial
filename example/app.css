@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+}
+
+.docs-header {
+  height: 64px;
+  background-color: #C2185B;
+  color: white;
+}
+
+.docs-container {
+  display: flex;
+}
+
+.docs-nav {
+  width: 200px;
+  display: inline-block;
+  padding-top: 10px;
+  background-color: white;
+  border-right: 1px solid lightgray;
+}
+
+.docs-nav > li {
+  list-style: none;
+  padding: 8px 10px;
+}
+
+.docs-nav > li a {
+  text-decoration: none;
+}
+
+.docs-page {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+}

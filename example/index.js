@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './app';
+import Root from './root';
 
-const root = document.createElement('div');
+const root = document.getElementById('root');
 
 function render(){
   console.log('Re-rendering');
-  ReactDOM.render(<App />, root);
+  ReactDOM.render(<Root />, root);
 }
 
 render();

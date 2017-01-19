@@ -10,7 +10,6 @@ class Snackbar extends Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props.open);
     this.state = {
       open: this.props.open,
     }

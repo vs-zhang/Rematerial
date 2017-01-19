@@ -1,0 +1,23 @@
+.rmd-tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.rmd-tooltip {
+  position: absolute;
+  z-index: 999;
+  background: rgba(97,97,97,.9);
+  border-radius: 2px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 500;
+  max-width: 170px;
+  padding: 8px;
+  text-align: center;
+  transform: scale(0);
+  transition: transform 0.35s;
+}
+
+.rmd-tooltip--active {
+  transform: scale(1);
+}

@@ -1,0 +1,33 @@
+.rmd-card {
+
+}
+
+.rmd-card__title-container {
+  position: relative;
+}
+
+.rmd-card__title-background {
+  max-width: 100%;
+  width: 100%;
+}
+
+.rmd-card__title {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  color: white;
+  font-size: 24px;
+}
+
+.rmd-card__text {
+  color: rgba(0,0,0,.54);
+  font-size: 16px;
+  line-height: 18px;
+  padding: 16px;
+}
+
+.rmd-card__actions {
+  padding: 8px;
+  border-top: 1px solid rgba(0,0,0,.1);
+  background-color: transparent;
+}

@@ -2,12 +2,18 @@ import path from 'path';
 
 module.exports = {
   devtool: 'cheap-module-source-map',
-  entry: {
-    example: path.join(__dirname, './index.js')
+  entry: [
+    './example/index'
+  ],
+  devServer: {
+    hot: true,
+    historyApiFallback: true,
+    contentBase: './example',
   },
   output: {
-    filename: '[name].js',
-    path: __dirname
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/static/'
   },
   module: {
     loaders: [
@@ -24,6 +30,10 @@ module.exports = {
         query: {
           presets: ["es2015", "stage-0", "react"]
         }
+      },
+      {
+        test: /\.(png|jpg|svg)$/,
+        loader: 'url-loader?limit=8192&name=images/[name]-[hash:6].[ext]'
       },
     ]
   },
