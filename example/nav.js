@@ -5,7 +5,6 @@ class Nav extends Component {
   render() {
     return (
       <aside role="nav" className="docs-nav">
-        <li><Link to="/">Home</Link></li>
         <li><Link to="/components/app">App</Link></li>
         <li><Link to="/components/button">Button</Link></li>
         <li><Link to="/components/dialog">Dialog</Link></li>

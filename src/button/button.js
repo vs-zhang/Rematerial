@@ -4,7 +4,7 @@ import classNames from 'classnames';
 class Button extends Component {
 
   static propTypes = {
-    children: PropTypes.element.isRequired,
+    children: PropTypes.node.isRequired,
     type: PropTypes.oneOf(['flat', 'raised', 'fab']),
     ripple: PropTypes.oneOf([true, false]),
   };

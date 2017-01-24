@@ -3,8 +3,12 @@ import React, { Component, PropTypes } from 'react';
 class HomePage extends Component {
   render() {
     return (
-      <div>
+      <div className="docs-home">
         Rematerialize
+
+        <li>
+          <code>isOpen</code>
+        </li>
       </div>
     )
   }

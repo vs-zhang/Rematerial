@@ -1,4 +1,5 @@
 import path from 'path';
+import webpack from 'webpack';
 
 module.exports = {
   devtool: 'cheap-module-source-map',
@@ -7,13 +8,14 @@ module.exports = {
   ],
   devServer: {
     hot: true,
+    inline: true,
     historyApiFallback: true,
     contentBase: './example',
   },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/asset/'
   },
   module: {
     loaders: [
@@ -37,5 +39,8 @@ module.exports = {
       },
     ]
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+  ],
   bail: true
 };

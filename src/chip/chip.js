@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 
 class Chip extends Component {
   static propTypes = {
-    children: PropTypes.element,
+    children: PropTypes.node,
   };
 
   render() {

@@ -7,11 +7,16 @@ import Root from './root';
 const root = document.getElementById('root');
 
 function render(){
-  console.log('Re-rendering');
   ReactDOM.render(<Root />, root);
 }
 
 render();
-setInterval(render, 8000);
 
-document.body.appendChild(root);
+if (module.hot) {
+  module.hot.accept('./root', () => {
+    /* eslint-disable global-require */
+    const NewRoot = require('./root').default;
+    /* eslint-enable global-require */
+    ReactDOM.render(<NewRoot />, root);
+  })
+}

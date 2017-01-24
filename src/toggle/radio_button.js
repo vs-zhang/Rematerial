@@ -23,7 +23,7 @@ class RadioButton extends Component {
           checked={this.props.checked}
           name={this.props.name}
           value={this.props.value}
-          onClick={this.handleClick}
+          readOnly
         />
         <span className="rmd-radio__label">{this.props.label}</span>
         <span className="rmd-radio__outer-circle" />

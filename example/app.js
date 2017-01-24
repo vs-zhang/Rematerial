@@ -77,8 +77,6 @@ class App extends Component {
 
     return (
       <div style={exampleStyle}>
-        <h1>Examples</h1>
-        <Divider />
         <Chip>
           Chip
         </Chip>
@@ -134,7 +132,7 @@ class App extends Component {
         <Button type="raised" onClick={this.handleClickSnackbar}>Show Snackbar</Button>
         <Snackbar
           open={this.state.openSnackbar}
-          duration="0.5"
+          duration={0.5}
           text="hello"
         />
         <Divider />
