@@ -1,10 +1,28 @@
 import React, { Component, PropTypes } from 'react';
+import { Slider } from '../../';
 
 class SliderPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sliderValue: 20,
+    };
+
+    this.handleChangeSlider = ::this.handleChangeSlider;
+  }
+
+  handleChangeSlider(e, value) {
+    this.setState({ sliderValue: value });
+  }
+
   render() {
     return (
       <div>
-        Slider
+        <Slider
+          value={this.state.sliderValue}
+          onChange={this.handleChangeSlider}
+        />
+        <p>The value of slide is {this.state.sliderValue}</p>
       </div>
     )
   }

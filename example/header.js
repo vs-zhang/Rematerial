@@ -5,7 +5,8 @@ class Header extends Component {
   render() {
     return (
       <div className="docs-header">
-        Nav
+        <Link to="/">Rematerialize</Link>
+        <Link to="/components/">Components</Link>
         <Link to="https://github.com/vs-zhang/RMD" target="_blank" >Github</Link>
       </div>
     )
