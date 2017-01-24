@@ -8,7 +8,7 @@ class Chip extends Component {
   render() {
     const { children, ...reactProps } = this.props;
     return (
-      <span {...reactProps} className="rmd__chip">
+      <span {...reactProps} className="rmd-chip">
         {children}
       </span>
     );

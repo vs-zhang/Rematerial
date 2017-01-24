@@ -4,8 +4,13 @@ import Overlay from '../shared/overlay';
 class Dialog extends Component {
   static propTypes = {
     open: PropTypes.bool.isRequired,
-    actions: PropTypes.element.isRequired,
-    children: PropTypes.node.isRequired,
+    actions: PropTypes.array,
+    children: PropTypes.node,
+  };
+
+  static defaultProps = {
+    actions: [],
+    children: 'Content',
   };
 
   render() {

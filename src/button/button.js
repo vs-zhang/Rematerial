@@ -61,9 +61,9 @@ class Button extends Component {
     }
 
     const btnClass = classNames({
-      rmd__button: true,
-      'rmd__button--fab': type === 'fab',
-      'rmd__button--raised': type === 'raised',
+      'rmd-button': true,
+      'rmd-button--fab': type === 'fab',
+      'rmd-button--raised': type === 'raised',
     });
 
 

@@ -1,6 +1,5 @@
 import './app.scss';
 
-import Demo from './demo/demo';
 import Divider from './divider/divider';
 import Chip from './chip/chip';
 import Button from './button/button';
@@ -12,7 +11,6 @@ import Tooltip from './tooltip/tooltip';
 import Snackbar from './snackbar/snackbar';
 
 export {
-  Demo,
   Divider,
   Chip,
   Button,
