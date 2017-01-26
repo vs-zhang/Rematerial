@@ -9,6 +9,7 @@ import Slider from './slider/slider';
 import { Checkbox, RadioButton, RadioButtonGroup } from './toggle';
 import Tooltip from './tooltip/tooltip';
 import Snackbar from './snackbar/snackbar';
+import { Input, Textarea } from './input/';
 
 export {
   Divider,
@@ -22,4 +23,6 @@ export {
   RadioButtonGroup,
   Tooltip,
   Snackbar,
+  Input,
+  Textarea,
 };

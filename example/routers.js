@@ -12,6 +12,7 @@ import SliderPage from './pages/slider_page';
 import TogglePage from './pages/toggle_page';
 import SnackbarPage from './pages/snackbar_page';
 import TooltipPage from './pages/tooltip_page';
+import InputPage from './pages/input_page';
 
 const routes = (
   <Route path="/" component={Layout}>
@@ -27,6 +28,7 @@ const routes = (
       <Route path="toggle" component={TogglePage}/>
       <Route path="snackbar" component={SnackbarPage}/>
       <Route path="tooltip" component={TooltipPage}/>
+      <Route path="input" component={InputPage}/>
     </Route>
   </Route>
 );
