@@ -20,6 +20,9 @@ code {
   height: 64px;
   background-color: #C2185B;
   color: white;
+  position: fixed;
+  width: 100%;
+  z-index: 4;
 }
 
 .docs-header__nav {
@@ -37,10 +40,12 @@ code {
 
 .docs-home {
   min-height: 1000px;
+  padding-top: 64px;
 }
 
 .docs-main {
   display: flex;
+  padding-top: 64px;
 }
 
 .docs-nav {
@@ -86,6 +91,14 @@ code {
 
 }
 
+.sticky-example {
+  background: #C2185B;
+  color: white;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+  border-bottom: 1px solid lightgray;
+}
 
 
 :not(pre) > code[class*="language-"],

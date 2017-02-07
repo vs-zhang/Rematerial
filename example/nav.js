@@ -14,6 +14,10 @@ class Nav extends Component {
         <li><Link to="/components/snackbar">Snackbar</Link></li>
         <li><Link to="/components/tooltip">Tooltip</Link></li>
         <li><Link to="/components/input">Input</Link></li>
+        <li><Link to="/components/date_picker">Date Picker</Link></li>
+        <li><Link to="/components/sticky">Sticky</Link></li>
+        <li><Link to="/components/icon">Icon</Link></li>
+        <li><Link to="/components/chart">Chart</Link></li>
       </aside>
     )
   }

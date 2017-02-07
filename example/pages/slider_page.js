@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Slider } from '../../';
+import { Slider } from 'rematerialize';
 
 class SliderPage extends Component {
   constructor(props) {

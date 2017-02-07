@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Card, Button } from '../../';
+import { Card, Button } from 'rematerialize';
 import WelcomeImg from '../asset/welcome_card.jpg';
 
 class CardPage extends Component {

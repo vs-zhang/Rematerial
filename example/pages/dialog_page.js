@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Button, Dialog } from '../../';
+import { Button, Dialog } from 'rematerialize';
 
 class DialogPage extends Component {
   constructor(props) {

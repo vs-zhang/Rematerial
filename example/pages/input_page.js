@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Input, Textarea } from '../../';
+import { Input, Textarea } from 'rematerialize';
 
 class InputPage extends Component {
   render() {

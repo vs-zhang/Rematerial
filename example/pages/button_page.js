@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Button, Divider } from '../../';
+import { Button, Divider } from 'rematerialize';
 import { Title, Inline, CodeBlock } from './shared/';
 const TitleSource = require('!!raw!./shared/title');
 

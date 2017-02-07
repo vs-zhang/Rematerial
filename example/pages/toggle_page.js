@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Checkbox, RadioButtonGroup, RadioButton } from '../../';
+import { Checkbox, RadioButtonGroup, RadioButton } from 'rematerialize';
 
 class TogglePage extends Component {
   constructor(props) {

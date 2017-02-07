@@ -1,12 +1,12 @@
 import React, { Component, PropTypes } from 'react';
-import { Button, Snackbar } from '../../';
+import { Button, Snackbar } from 'rematerialize';
 
 class SnackbarPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       openSnackbar: false,
-    }
+    };
 
     this.handleClickSnackbar = ::this.handleClickSnackbar;
   }

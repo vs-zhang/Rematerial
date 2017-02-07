@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Tooltip } from '../../';
+import { Tooltip } from 'rematerialize';
 
 class TooltipPage extends Component {
   render() {

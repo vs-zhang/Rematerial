@@ -12,19 +12,23 @@ import {
   RadioButtonGroup,
   Tooltip,
   Snackbar,
-} from '../';
+  Input,
+  Textarea,
+  DatePicker,
+  Icon,
+  Sticky,
+} from 'rematerialize';
 
-import WelcomeImg from './asset/welcome_card.jpg';
+import WelcomeImg from '../asset/welcome_card.jpg';
 
 const exampleStyle = {
   margin: 'auto',
-  padding: '10px 0',
   minHeight: '1000px',
   backgroundColor: '#FAFAFA',
 };
 
 class App extends Component {
-  constructor(props, content) {
+  constructor(props) {
     super(props);
     this.state = {
       open: false,
@@ -80,6 +84,13 @@ class App extends Component {
         <Chip>
           Chip
         </Chip>
+        <Divider />
+        <Icon name="keyboard_arrow_left" />
+        <Icon name="check_circle"/>
+        <Divider />
+        <Sticky className="sticky-example" topOffset={64}>
+          Something fixed
+        </Sticky>
         <Divider />
         <Button type="flat">Button</Button>
         <Button type="fab">+</Button>
@@ -168,6 +179,44 @@ class App extends Component {
             <a href="#">Tooltip left</a>
           </Tooltip>
         </div>
+
+        <Divider />
+        <div>
+          <div>
+            <Input label="Basic Input"/>
+          </div>
+          <div>
+            <Input
+              label="Input with default value"
+              defaultValue="default value"
+            />
+          </div>
+          <div>
+            <Input
+              label="Floating Label"
+              floatingLabel={true}
+              defaultValue="abcd"
+            />
+          </div>
+          <div>
+            <Textarea
+              label="Floating Textarea"
+              floatingLabel={true}
+              defaultValue="Textarea"
+            />
+          </div>
+          <div>
+            <Textarea
+              rows="4"
+              cols="50"
+              label="Floating Textarea"
+              floatingLabel={true}
+              defaultValue="Textarea"
+            />
+          </div>
+        </div>
+        <Divider />
+        <DatePicker />
       </div>
     )
   }

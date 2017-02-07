@@ -1,0 +1,73 @@
+.rmd-date-picker {
+  border: 1px solid lightgray;
+  display: inline-block;
+}
+
+.rmd-date-picker__header {
+  background-color: white;
+}
+
+.rmd-date-picker__current-month {
+  color: black;
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.rmd-date-picker__nav {
+  height: 30px;
+  .nav {
+    color: #00A4E3;
+    cursor: pointer;
+    &.left {
+      float: left;
+    }
+    &.right {
+      float: right;
+    }
+  }
+}
+
+.rmd-date-picker__header-days {
+  display: flex;
+  .rmd-date-picker__header-day-name {
+    width: 46px;
+    line-height: 46px;
+    background-color: lightgray;
+    text-align: center;
+    color: white;
+  }
+}
+
+.rmd-date-picker__week {
+  display: flex;
+}
+
+.rmd-date-picker__day {
+  width: 40px;
+  text-align: center;
+  color: lightgray;
+  cursor: pointer;
+  margin: 3px;
+  height: 40px;
+  line-height: 40px;
+  &.is-active {
+    color: black;
+  }
+  &.is-current {
+    border: 1px solid #00A4E3;
+    border-radius: 50%;
+  }
+  &.is-selected {
+    background-color: #00A4E3;
+    color: white;
+    border-radius: 50%;
+  }
+  &:hover {
+    background-color: #00A4E3;
+    color: white;
+    border-radius: 50%;
+  }
+}
+
+

@@ -1,9 +1,8 @@
+require('file-loader?name=[name].[ext]!./index.html');
+require('file-loader?name=[name].[ext]!./prism.js');
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import App from './app';
 import Root from './root';
-
 const root = document.getElementById('root');
 
 function render(){

@@ -1,6 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
-
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 module.exports = {
   devtool: 'cheap-module-source-map',
   entry: [
@@ -15,7 +16,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/asset/'
+    publicPath: '/'
   },
   module: {
     loaders: [
@@ -38,6 +39,12 @@ module.exports = {
         loader: 'url-loader?limit=8192&name=images/[name]-[hash:6].[ext]'
       },
     ]
+  },
+  resolve: {
+    alias:{
+      rematerialize: path.resolve('./index.js'),
+    },
+    extensions: [ '', '.js' ]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
