@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 
 class Overlay extends Component {
-
   static propTypes = {
-    children: PropTypes.element,
+    children: PropTypes.node.isRequired,
   };
 
   render() {

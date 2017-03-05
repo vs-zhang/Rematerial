@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
+import _ from 'lodash';
 
 class Input extends Component {
   static propTypes = {
@@ -9,6 +10,7 @@ class Input extends Component {
   };
 
   static defaultProps = {
+    label: '',
     hint: '',
     defaultValue: '',
     floatingLabel: false,
@@ -47,10 +49,11 @@ class Input extends Component {
       'is-dirty': this.state.dirty,
       'is-focused': this.state.focus,
     });
-
-    return(
+    const id = _.uniqueId('rmd-input');
+    return (
       <div className={textClasses}>
         <input
+          id={id}
           type="text"
           className="rmd-textfield__input"
           onChange={this.handleChangeInput}
@@ -58,7 +61,7 @@ class Input extends Component {
           onBlur={this.handleBlurInput}
           value={this.state.value}
         />
-        <label className="rmd-textfield__label">
+        <label className="rmd-textfield__label" htmlFor={id}>
           {this.props.label}
         </label>
       </div>

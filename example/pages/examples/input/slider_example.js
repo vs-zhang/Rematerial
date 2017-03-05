@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import { Slider } from 'rematerialize';
+import { Slider } from 'rematerial';
 
-class SliderPage extends Component {
+class SliderExample extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,21 +11,22 @@ class SliderPage extends Component {
     this.handleChangeSlider = ::this.handleChangeSlider;
   }
 
-  handleChangeSlider(e, value) {
+  handleChangeSlider(value) {
     this.setState({ sliderValue: value });
   }
 
   render() {
+    const style = {
+      width: 500,
+    };
+
     return (
-      <div>
-        <Slider
-          value={this.state.sliderValue}
-          onChange={this.handleChangeSlider}
-        />
+      <div style={style}>
+        <Slider value={this.state.sliderValue} onChange={this.handleChangeSlider} />
         <p>The value of slide is {this.state.sliderValue}</p>
       </div>
     )
   }
 }
 
-export default SliderPage;
+export default SliderExample;

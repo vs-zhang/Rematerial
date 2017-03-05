@@ -1,5 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+import _ from 'lodash';
 import Input from './input';
 
 class Textarea extends Input {
@@ -20,8 +21,8 @@ class Textarea extends Input {
       'is-dirty': this.state.dirty,
       'is-focused': this.state.focus,
     });
-
-    return(
+    const id = _.uniqueId('rmd-textarea');
+    return (
       <div className={textClasses}>
         <textarea
           className="rmd-textfield__input"
@@ -31,8 +32,9 @@ class Textarea extends Input {
           onFocus={this.handleFocusInput}
           onBlur={this.handleBlurInput}
           value={this.state.value}
+          id={id}
         />
-        <label className="rmd-textfield__label">
+        <label className="rmd-textfield__label" htmlFor={id}>
           {this.props.label}
         </label>
       </div>

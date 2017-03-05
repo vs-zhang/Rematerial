@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 
 class Tooltip extends Component {
   static propTypes = {
-    title: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     color: PropTypes.string,
     isActive: PropTypes.bool,
@@ -15,7 +14,7 @@ class Tooltip extends Component {
   static defaultProps = {
     isActive: false,
     color: '#C6C6C6',
-    position: {top: 0, left: 0},
+    position: { top: 0, left: 0 },
   };
 
   constructor(props) {
@@ -26,8 +25,7 @@ class Tooltip extends Component {
   }
 
   render() {
-    const { isActive, position, title, value, color } = this.props;
-
+    const { isActive, position, value, color } = this.props;
     const style = {
       position: 'absolute',
       top: position.top,
@@ -48,7 +46,7 @@ class Tooltip extends Component {
         </div>
         }
       </div>
-    )
+    );
   }
 }
 

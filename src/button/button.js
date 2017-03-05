@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
 class Button extends Component {
-
   static propTypes = {
     children: PropTypes.node.isRequired,
     type: PropTypes.oneOf(['flat', 'raised', 'fab']),

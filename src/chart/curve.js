@@ -1,13 +1,11 @@
 import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames';
+import { line, curveMonotoneX } from 'd3-shape';
+import _ from 'lodash';
 import Group from './group';
-import { line, area, curveBasisClosed, curveBasisOpen,
-  curveBasis, curveLinearClosed, curveLinear, curveMonotoneX, curveMonotoneY,
-  curveNatural, curveStep, curveStepAfter, curveStepBefore } from 'd3-shape';
 
 class Curve extends Component {
   static propTypes = {
-    points: PropTypes.arrayOf(PropTypes.object),
+    points: PropTypes.arrayOf(PropTypes.object).isRequired,
     isActive: PropTypes.bool,
   };
 
@@ -15,25 +13,25 @@ class Curve extends Component {
     isActive: false,
   };
 
-  getPath(points) {
-    let lineFunction = line().x(p => p.x).y(p => p.y);
+  getPath = (points) => {
+    const lineFunction = line().x(p => p.x).y(p => p.y);
     lineFunction.curve(curveMonotoneX);
     return lineFunction(points);
-  }
+  };
 
   render() {
     const path = this.getPath(this.props.points);
-    const { points, isActive, ...otherProps } = this.props;
-    return(
+    const otherProps = _.omit(this.props, ['points', 'isActive']);
+    return (
       <Group>
         <path
           {...otherProps}
-          strokeWidth={isActive ? 1.5 : 1}
+          strokeWidth={this.props.isActive ? 1.5 : 1}
           fill="none"
           d={path}
         />
       </Group>
-    )
+    );
   }
 }
 

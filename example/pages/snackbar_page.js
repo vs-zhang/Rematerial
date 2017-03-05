@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Button, Snackbar } from 'rematerialize';
+import { Button, Snackbar } from 'rematerial';
 
 class SnackbarPage extends Component {
   constructor(props) {

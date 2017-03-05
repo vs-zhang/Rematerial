@@ -9,4 +9,15 @@ import Legend from './legend';
 import Group from './group';
 import Tooltip from './tooltip';
 
-export { ChartContainer, Curve, Rect, Legend, Group, Tooltip, LineChart, BarChart, AreaChart, PieChart };
+export {
+  ChartContainer,
+  Curve,
+  Rect,
+  Legend,
+  Group,
+  Tooltip,
+  LineChart,
+  BarChart,
+  AreaChart,
+  PieChart,
+};

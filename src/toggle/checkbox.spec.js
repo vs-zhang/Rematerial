@@ -6,7 +6,7 @@ import Checkbox from './checkbox';
 describe('<Checkbox />', () => {
   let checkbox;
   beforeEach(() => {
-    checkbox = mount(<Checkbox label="test checkbox"/>);
+    checkbox = mount(<Checkbox label="test checkbox" />);
   });
 
   it('should render correct label', () => {
@@ -26,5 +26,4 @@ describe('<Checkbox />', () => {
     expect(checkbox.hasClass('is-checked')).to.equal(true);
     expect(checkbox.state().isChecked).to.equal(true);
   });
-
 });

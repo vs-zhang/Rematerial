@@ -1,15 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
+import _ from 'lodash';
 
 class Checkbox extends Component {
   static propTypes = {
     isChecked: PropTypes.bool,
-    label: PropTypes.string,
+    label: PropTypes.string.isRequired,
     onCheck: PropTypes.func,
   };
 
   static defaultProps = {
     isChecked: false,
+    onCheck: () => {},
   };
 
   constructor(props) {
@@ -21,11 +23,11 @@ class Checkbox extends Component {
     this.handleCheck = ::this.handleCheck;
   }
 
-  handleCheck(e) {
+  handleCheck() {
     const value = !this.state.isChecked;
     this.setState({ isChecked: value });
     if (this.props.onCheck) {
-      this.props.onCheck(e, value);
+      this.props.onCheck(value);
     }
   }
 
@@ -34,15 +36,16 @@ class Checkbox extends Component {
       'rmd-checkbox': true,
       'is-checked': this.state.isChecked,
     });
-
+    const id = _.uniqueId('rmd-check');
     return (
-      <label className={checkboxClass} >
+      <label className={checkboxClass} htmlFor={id}>
         <input
           type="checkbox"
           className="rmd-checkbox__input"
           checked={this.state.isChecked}
           value={this.state.isChecked}
           onChange={this.handleCheck}
+          id={id}
         />
         <span className="rmd-checkbox__label">{this.props.label}</span>
         <span className="rmd-checkbox__box-outline">

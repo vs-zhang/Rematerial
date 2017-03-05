@@ -17,7 +17,7 @@ import {
   DatePicker,
   Icon,
   Sticky,
-} from 'rematerialize';
+} from 'rematerial';
 
 import WelcomeImg from '../asset/welcome_card.jpg';
 

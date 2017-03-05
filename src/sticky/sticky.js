@@ -4,12 +4,13 @@ import classNames from 'classnames';
 class Sticky extends Component {
   static propTypes = {
     topOffset: PropTypes.number,
-    bottomOffset: PropTypes.number,
+    className: PropTypes.string,
+    children: PropTypes.node.isRequired,
   };
 
   static defaultProps = {
     topOffset: 0,
-    bottomOffset: 0,
+    className: '',
   };
 
   constructor(props) {
@@ -31,8 +32,12 @@ class Sticky extends Component {
     this.update();
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
   handleScroll = () => {
-    this.update()
+    this.update();
   };
 
   update() {
@@ -40,21 +45,17 @@ class Sticky extends Component {
     const containerOffsetTop = this.container.offsetTop;
     const yOffset = window.pageYOffset;
 
-    const isSticky = yOffset >= ( containerOffsetTop - this.props.topOffset );
+    const isSticky = yOffset >= (containerOffsetTop - this.props.topOffset);
     const height = containerRect.height;
     const width = containerRect.width;
     this.setState({ isSticky, height, width });
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
-
   render() {
     const { className } = this.props;
     const stickyClasses = classNames({
-      "rmd-sticky": true,
-      "is-fixed": this.state.isSticky,
+      'rmd-sticky': true,
+      'is-fixed': this.state.isSticky,
     });
     const placeholderStyle = {
       height: this.state.height,
@@ -64,26 +65,25 @@ class Sticky extends Component {
       top: this.props.topOffset,
     };
 
-    return(
+    return (
       <div
         className={stickyClasses}
-        ref={(container) => {this.container = container;}}
+        ref={(container) => { this.container = container; }}
       >
-        <div
+        <span
           className="rmd-sticky__placeholder"
           style={placeholderStyle}
-          ref={(placeholder) => {this.placeholder = placeholder;}}
-        >
-        </div>
+          ref={(placeholder) => { this.placeholder = placeholder; }}
+        />
         <div
-          ref={(sticky) => {this.sticky = sticky;}}
+          ref={(sticky) => { this.sticky = sticky; }}
           style={style}
           className={`rmd-sticky__container ${className}`}
         >
           {this.props.children}
         </div>
       </div>
-    )
+    );
   }
 }
 

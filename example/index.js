@@ -1,5 +1,6 @@
 require('file-loader?name=[name].[ext]!./index.html');
 require('file-loader?name=[name].[ext]!./prism.js');
+require('file-loader?name=[name].[ext]!./rematerial.ico');
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './root';

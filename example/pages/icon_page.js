@@ -1,18 +1,26 @@
-import React, { Component, PropTypes } from 'react';
-import { Icon } from 'rematerialize';
+import React from 'react';
+import { Icon } from 'rematerial';
+import { Title, CodeBlock } from './shared/';
+import DocumentTitle from 'react-document-title';
+import IconExample from './examples/icons/icons_example';
+const IconExampleSource = require('!!raw!./examples/icons/icons_example');
 
-class IconPage extends Component {
-  render() {
-    return(
+const IconPage = () => {
+  return (
+    <DocumentTitle title="Icons">
       <div>
-        <Icon name="keyboard_arrow_left"/>
-        <Icon name="date_range"/>
-        <Icon name="accessibility"/>
-        <Icon name="3d_rotation"/>
-        <Icon name="check_circle"/>
+        <Title title="Icons" desc="Material Design Icons."/>
+
+        <section>
+          <h3 className="example-title">1. Material Design Icons</h3>
+          <IconExample />
+          <CodeBlock type="javascript">
+            {IconExampleSource}
+          </CodeBlock>
+        </section>
       </div>
-    )
-  }
-}
+    </DocumentTitle>
+  )
+};
 
 export default IconPage;

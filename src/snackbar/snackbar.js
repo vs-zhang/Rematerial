@@ -8,11 +8,15 @@ class Snackbar extends Component {
     duration: PropTypes.number,
   };
 
+  static defaultProps = {
+    duration: 1,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
       open: this.props.open,
-    }
+    };
   }
 
   componentWillReceiveProps(nextProps) {

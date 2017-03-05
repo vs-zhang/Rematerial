@@ -3,11 +3,17 @@ import RadioButton from './radio_button';
 
 class RadioButtonGroup extends Component {
   static propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.node.isRequired,
     onCheck: PropTypes.func,
     className: PropTypes.string,
     selected: PropTypes.string,
     name: PropTypes.string.isRequired,
+  };
+
+  static defaultProps = {
+    onCheck: () => {},
+    className: '',
+    selected: '',
   };
 
   constructor(props) {
@@ -19,8 +25,9 @@ class RadioButtonGroup extends Component {
   }
 
   handleChange(e) {
-    this.setState({ selected: e.target.value });
-    this.props.onCheck(e, e.target.value);
+    const selected = e.target.value;
+    this.setState({ selected });
+    this.props.onCheck(selected);
   }
 
   render() {

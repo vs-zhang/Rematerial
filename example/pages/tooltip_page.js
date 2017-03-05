@@ -1,45 +1,28 @@
 import React, { Component, PropTypes } from 'react';
-import { Tooltip } from 'rematerialize';
+import { Divider } from 'rematerial';
+import { Title, CodeBlock } from './shared/';
+import DocumentTitle from 'react-document-title';
+import TooltipExample from './examples/tooltip/tooltip_example';
+const TooltipExampleSource = require('!!raw!./examples/tooltip/tooltip_example');
 
-class TooltipPage extends Component {
-  render() {
-    return (
+const TooltipPage = () => {
+  return (
+    <DocumentTitle title="Tooltip">
       <div>
-        <div>
-          <Tooltip
-            text="hello top"
-            placement="top"
-          >
-            <a href="#">Tooltip top</a>
-          </Tooltip>
-        </div>
-        <div>
-          <Tooltip
-            text="hello right"
-            placement="right"
-          >
-            <a href="#">Tooltip right</a>
-          </Tooltip>
-        </div>
-        <div>
-          <Tooltip
-            text="hello bottom"
-            placement="bottom"
-          >
-            <a href="#">Tooltip bottom</a>
-          </Tooltip>
-        </div>
-        <div>
-          <Tooltip
-            text="hello left"
-            placement="left"
-          >
-            <a href="#">Tooltip left</a>
-          </Tooltip>
-        </div>
+        <Title title="Tooltip" desc=""/>
+
+        <section>
+          <h3 className="example-title">1. Tooltip</h3>
+          <TooltipExample />
+          <CodeBlock type="javascript">
+            {TooltipExampleSource}
+          </CodeBlock>
+        </section>
+
+        <Divider />
       </div>
-    )
-  }
-}
+    </DocumentTitle>
+  )
+};
 
 export default TooltipPage;

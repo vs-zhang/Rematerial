@@ -3,8 +3,12 @@
   display: inline-block;
 }
 
-.rmd-tooltip {
+.rmd-tooltip-wrapper {
   position: absolute;
+}
+
+.rmd-tooltip {
+  position: relative;
   z-index: 999;
   background: rgba(97,97,97,.9);
   border-radius: 2px;

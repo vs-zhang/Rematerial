@@ -14,6 +14,7 @@ class Slider extends Component {
     max: 100,
     value: 0,
     step: 1,
+    onChange: () => {},
   };
 
   constructor(props) {
@@ -29,10 +30,10 @@ class Slider extends Component {
   }
 
   handleChange(e) {
-    const value = e.target.value;
+    const value = parseFloat(e.target.value);
     this.setState({ value });
     if (this.props.onChange) {
-      this.props.onChange(e, value);
+      this.props.onChange(value);
     }
   }
 

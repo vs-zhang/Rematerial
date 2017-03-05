@@ -1,24 +1,32 @@
 import React, { Component, PropTypes } from 'react';
-import { line, area, arc, pie, curveBasisClosed, curveBasisOpen,
-  curveBasis, curveLinearClosed, curveLinear, curveMonotoneX, curveMonotoneY,
-  curveNatural, curveStep, curveStepAfter, curveStepBefore } from 'd3-shape';
-
+import { arc } from 'd3-shape';
 
 class Arc extends Component {
   static propTypes = {
-    data: PropTypes.object.isRequired,
+    data: PropTypes.shape({
+      endAngle: PropTypes.number.isRequired,
+      innerRadius: PropTypes.number.isRequired,
+      outerRadius: PropTypes.number.isRequired,
+      padAngle: PropTypes.number.isRequired,
+      startAngle: PropTypes.number.isRequired,
+      value: PropTypes.number.isRequired,
+    }).isRequired,
     stroke: PropTypes.string.isRequired,
     fill: PropTypes.string.isRequired,
+    onMouseEnter: PropTypes.func.isRequired,
   };
 
   render() {
-    const { data, ...otherProps } = this.props;
+    const { data, onMouseEnter, fill, ...otherProps } = this.props;
     return (
       <path
+        onMouseEnter={() => { onMouseEnter(data, fill); }}
+        fill={fill}
+        data={data}
         {...otherProps}
         d={arc()(data)}
       />
-    )
+    );
   }
 }
 

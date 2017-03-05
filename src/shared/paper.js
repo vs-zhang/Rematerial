@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 
 class Paper extends Component {
-
   static propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.node.isRequired,
   };
 
   render() {

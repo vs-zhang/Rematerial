@@ -6,7 +6,7 @@ import Slider from './slider';
 describe('<Slider />', () => {
   let slider;
   beforeEach(() => {
-    slider = mount(<Slider value={50}/>);
+    slider = mount(<Slider value={50} />);
   });
 
   it('should pass the correct value', () => {

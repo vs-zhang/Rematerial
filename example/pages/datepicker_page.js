@@ -1,15 +1,28 @@
-import React, { Component, PropTypes } from 'react';
-import { DatePicker } from 'rematerialize';
-import Moment from 'moment';
+import React from 'react';
+import { Divider } from 'rematerial';
+import { Title, CodeBlock } from './shared/';
+import DocumentTitle from 'react-document-title';
+import DatePickerExample from './examples/date_picker/date_picker_example';
+const DatePickerExampleSource = require('!!raw!./examples/date_picker/date_picker_example');
 
-class DatePickerPage extends Component {
-  render() {
-    return(
+const DatePickerPage = () => {
+  return (
+    <DocumentTitle title="Date Picker">
       <div>
-        <DatePicker />
+        <Title title="Date Picker" desc=""/>
+
+        <section>
+          <h3 className="example-title">1. Date Picker</h3>
+          <DatePickerExample  />
+          <CodeBlock type="javascript">
+            {DatePickerExampleSource}
+          </CodeBlock>
+        </section>
+
+        <Divider />
       </div>
-    )
-  }
-}
+    </DocumentTitle>
+  )
+};
 
 export default DatePickerPage;

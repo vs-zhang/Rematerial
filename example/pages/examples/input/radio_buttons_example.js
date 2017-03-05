@@ -1,35 +1,22 @@
 import React, { Component, PropTypes } from 'react';
-import { Checkbox, RadioButtonGroup, RadioButton } from 'rematerialize';
+import { Checkbox, RadioButtonGroup, RadioButton } from 'rematerial';
 
-class TogglePage extends Component {
+class RadioButtonsExample extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checkboxValue: true,
       radioValue: 'first',
     };
-    this.handleClickCheckbox = ::this.handleClickCheckbox;
     this.handleChangeRadio = ::this.handleChangeRadio;
   }
 
-  handleClickCheckbox(e, value) {
-    this.setState({ checkboxValue: value});
-  }
-
-  handleChangeRadio(e, value) {
+  handleChangeRadio(value) {
     this.setState({ radioValue: value});
   }
 
   render() {
     return (
       <div>
-        <Checkbox
-          isChecked={this.state.checkboxValue}
-          label="Checkbox"
-          onCheck={this.handleClickCheckbox}
-        />
-        <p>The value of checkbox is {this.state.checkboxValue.toString()}</p>
-
         <RadioButtonGroup
           name="options"
           selected={this.state.radioValue}
@@ -50,4 +37,4 @@ class TogglePage extends Component {
   }
 }
 
-export default TogglePage;
+export default RadioButtonsExample;

@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames';
+import { pie } from 'd3-shape';
 import _ from 'lodash';
 import Group from './group';
 import ChartContainer from './chart_container';
 import Arc from './arc';
+import Tooltip from './tooltip';
 import Legend from './legend';
-import { pie } from 'd3-shape';
 
 class PieChart extends Component {
   static propTypes = {
@@ -26,7 +26,7 @@ class PieChart extends Component {
   };
 
   static defaultProps = {
-    margin: {top: 0, left: 0, bottom: 0, right: 0},
+    margin: { top: 0, left: 0, bottom: 0, right: 0 },
   };
 
   constructor(props) {
@@ -35,42 +35,84 @@ class PieChart extends Component {
     const legendHeight = 18;
     const legendMarginTop = 10;
     const { top, bottom, left, right } = this.props.margin;
-    const chartHeight = this.props.height - titleLabelHeight - legendHeight - legendMarginTop - top - bottom;
-    const chartWidth = this.props.width -  left - right;
-    const radius = (chartHeight > chartWidth ? chartWidth : chartHeight)*0.5;
+    const { height, width } = this.props;
+    const chartHeight = height - titleLabelHeight - legendHeight - legendMarginTop - top - bottom;
+    const chartWidth = width - left - right;
+    const radius = (chartHeight > chartWidth ? chartWidth : chartHeight) * 0.5;
+    const defaultTooltip = { title: '', value: '', isActive: false, position: { top: 0, left: 0 }, color: '#ffffff' };
     this.state = {
-      origin: {x: left+(chartWidth*0.5), y: titleLabelHeight+top+(chartHeight*0.5) },
+      origin: {
+        x: left + (chartWidth * 0.5),
+        y: titleLabelHeight + top + (chartHeight * 0.5),
+      },
+      tooltip: defaultTooltip,
+      defaultTooltip,
       radius,
     };
 
+    this.handleMouseEnter = ::this.handleMouseEnter;
+    this.handleMouseLeave = ::this.handleMouseLeave;
   }
 
-  getScaledData(data) {
-    return pie().value(d => d.y)(data);
+  getScaledData = data => (pie().value(d => d.y))(data);
+
+  handleMouseEnter(data, fillColor) {
+    const { value, startAngle, endAngle, innerRadius, outerRadius } = data;
+    const radius = innerRadius + outerRadius;
+    const { x, y } = this.state.origin;
+    const gapAngle = endAngle - startAngle;
+    const angle = startAngle + ((gapAngle / 2) - (Math.PI / 2));
+    const left = x + (Math.cos(angle) * radius * 0.5);
+    const top = y + (Math.sin(angle) * radius * 0.5);
+    const tooltip = {
+      isActive: true,
+      title: '',
+      color: fillColor,
+      value: value.toString(),
+      position: {
+        top,
+        left,
+      },
+    };
+    this.setState({ tooltip });
+  }
+
+  handleMouseLeave() {
+    this.setState({ tooltip: this.state.defaultTooltip });
   }
 
   renderPies(scaledDataEntries, colorOptions) {
     const innerRadius = 0;
     const outerRadius = this.state.radius;
-    const formattedDataEntries = _.map(scaledDataEntries, (entry) => {
-      return {...entry, innerRadius, outerRadius}
-    });
+    const formattedDataEntries = _.map(scaledDataEntries, entry => (
+      { ...entry, innerRadius, outerRadius }),
+    );
     const arcs = _.map(formattedDataEntries, (entry) => {
-      const key = _.uniqueId("arc");
-      const { stroke, fill } = _.find(colorOptions, {key: entry.data.name});
-      return <Arc data={entry} stroke={stroke} fill={fill} key={key} />
+      const key = _.uniqueId('arc');
+      const { stroke, fill } = _.find(colorOptions, { key: entry.data.name });
+      return (
+        <Arc
+          data={entry}
+          stroke={stroke}
+          fill={fill}
+          key={key}
+          className="rmd-charts-arc"
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}
+        />
+      );
     });
 
     const { x, y } = this.state.origin;
     const style = {
-      transform: `translate(${x}px, ${y}px)`
+      transform: `translate(${x}px, ${y}px)`,
     };
 
-    return(
+    return (
       <Group className="rmd-charts-arcs" style={style}>
         {arcs}
       </Group>
-    )
+    );
   }
 
   render() {
@@ -99,8 +141,9 @@ class PieChart extends Component {
       width,
     };
 
+    const { value, color, isActive, position } = this.state.tooltip;
     const scaledDataEntries = this.getScaledData(data.value);
-    return(
+    return (
       <div style={wrapperStyle}>
         <div style={titleStyle}>
           {title}
@@ -108,9 +151,16 @@ class PieChart extends Component {
         <ChartContainer width={width} height={height}>
           {this.renderPies(scaledDataEntries, colorOptions)}
         </ChartContainer>
-        <Legend options={legendOptions} style={legendStyle}/>
+        <Tooltip
+          isActive={isActive}
+          title={title}
+          value={value}
+          position={position}
+          color={color}
+        />
+        <Legend options={legendOptions} style={legendStyle} />
       </div>
-    )
+    );
   }
 }
 

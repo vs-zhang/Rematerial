@@ -1,21 +1,25 @@
 import React, { Component, PropTypes } from 'react';
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
+import _ from 'lodash';
 import Week from './week';
-import DatePickerHeader from './header';
 import Icon from '../icon/icon';
 
 class DatePicker extends Component {
-  static propsTypes = {
+  static propTypes = {
     year: PropTypes.number,
     month: PropTypes.number,
-    format: PropTypes.oneOf(['MM/DD/YYYY', 'DD/MM/YYYY','MM-DD-YYYY', 'DD-MM-YYYY']),
+    defaultDate: PropTypes.instanceOf(Date),
+    format: PropTypes.oneOf(['MM/DD/YYYY', 'DD/MM/YYYY', 'MM-DD-YYYY', 'DD-MM-YYYY']),
+    onChange: PropTypes.func,
   };
 
   static defaultProps = {
     year: Moment().year(),
     month: Moment().month(),
+    defaultDate: Moment().toDate(),
     format: 'MM/DD/YYYY',
+    onChange: () => {},
   };
 
   constructor(props) {
@@ -24,14 +28,50 @@ class DatePicker extends Component {
     this.state = {
       year: this.props.year,
       month: this.props.month,
-      current: Moment(),
-      calendar: calendar,
+      current: Moment(this.props.defaultDate),
+      isOpen: false,
+      inputWidth: 0,
+      calendar,
     };
 
     this.handleClickPrevMonth = ::this.handleClickPrevMonth;
     this.handleClickNextMonth = ::this.handleClickNextMonth;
     this.handleSelect = ::this.handleSelect;
+    this.handleOnFocus = ::this.handleOnFocus;
+    this.handleClose = ::this.handleClose;
   }
+
+  componentDidMount() {
+    document.addEventListener('click', this.handleClose);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleClose);
+  }
+
+  getCalendar = (year, month) => {
+    const moment = extendMoment(Moment);
+    const startDate = moment([year, month]);
+    const firstDay = moment(startDate).startOf('month');
+    const endDay = moment(startDate).endOf('month');
+    const f = moment(firstDay).startOf('week');
+    const l = moment(endDay).endOf('week');
+    const calendarRange = moment.range(f, l);
+    const daysInWeek = 7;
+    const calendar = {};
+    let count = 0;
+    let key = 0;
+    const range = Array.from(calendarRange.by('day'));
+    _.forEach(range, (day) => {
+      if ((count % daysInWeek) === 0) {
+        key = count / daysInWeek;
+        calendar[key] = [];
+      }
+      calendar[key].push(day);
+      count += 1;
+    });
+    return calendar;
+  };
 
   handleClickPrevMonth() {
     const date = Moment([this.state.year, this.state.month]);
@@ -45,9 +85,9 @@ class DatePicker extends Component {
     this.updateCurrentMonth(nextDate);
   }
 
-  handleSelect(e) {
-    const value = e.target.getAttribute('data-value');
-    this.setState({ current: Moment(value, this.props.format) });
+  handleSelect(value) {
+    this.setState({ current: Moment(value, this.props.format), isOpen: false });
+    this.props.onChange(value);
   }
 
   updateCurrentMonth(date) {
@@ -61,68 +101,70 @@ class DatePicker extends Component {
     });
   }
 
-  getCalendar(year, month) {
-    const moment = extendMoment(Moment);
-    const startDate = moment([year, month]);
-    const firstDay = moment(startDate).startOf('month');
-    const endDay = moment(startDate).endOf('month');
-    const f = moment(firstDay).startOf('week');
-    const l = moment(endDay).endOf('week');
-    const calendarRange = moment.range(f, l);
-    const daysInWeek = 7;
-    let calendar = {};
-    let count = 0;
-    let key = 0;
-    for (let day of calendarRange.by('day')) {
-      if ((count % daysInWeek) === 0) {
-        key = count / daysInWeek;
-        calendar[key] = [];
-      }
-      calendar[key].push(day);
-      count++;
+  handleClose(e) {
+    if (this.state.isOpen) {
+      this.setState({ isOpen: this.container.contains(e.target) });
     }
-    return calendar;
+  }
+
+  handleOnFocus() {
+    this.setState({ isOpen: true, inputWidth: this.input.offsetWidth });
   }
 
   render() {
-    console.log('render');
-    const calendarElements = Object.values(this.state.calendar).map((week) => {
-      return (
-        <Week
-          week={week}
-          key={week.toString()}
-          month={this.state.month}
-          current={this.state.current}
-          format={this.props.format}
-          handleSelect={this.handleSelect}
-        />
-      );
-    });
-
+    const calendarElements = Object.values(this.state.calendar).map(week =>
+      <Week
+        week={week}
+        key={week.toString()}
+        month={this.state.month}
+        current={this.state.current}
+        format={this.props.format}
+        handleSelect={this.handleSelect}
+      />,
+    );
     const months = Moment.months();
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
-    const dayHeaderElements = days.map((d) => {
-      return <div key={d} className="rmd-date-picker__header-day-name">{d}</div>;
-    });
+    const dayHeaderElements = days.map(d =>
+      <div key={d} className="rmd-date-picker__header-day-name">{d}</div>,
+    );
+
+    const arrowStyle = {
+      left: this.state.inputWidth / 2,
+    };
 
     return (
-      <div className="rmd-date-picker">
-        <div className="rmd-date-picker__header">
-          <div>{this.state.current.format(this.props.format)}</div>
-          <div className="rmd-date-picker__current-month">{this.state.year} {months[this.state.month]}</div>
-          <div className="rmd-date-picker__nav">
-            <a className="nav left" onClick={this.handleClickPrevMonth}>
-              <Icon name="keyboard_arrow_left" />
-            </a>
-            <a className="nav right" onClick={this.handleClickNextMonth}>
-              <Icon name="keyboard_arrow_right" />
-            </a>
-          </div>
-          <div className="rmd-date-picker__header-days">
-            {dayHeaderElements}
+      <div className="rmd-date-picker" ref={(container) => { this.container = container; }}>
+        <input
+          type="text"
+          className="rmd-date-picker__input"
+          value={this.state.current.format(this.props.format)}
+          onBlur={this.handleOnBlur}
+          onFocus={this.handleOnFocus}
+          ref={(input) => { this.input = input; }}
+          readOnly
+        />
+        {this.state.isOpen &&
+        <div>
+          <span className="rmd-date-picker__arrow" style={arrowStyle} />
+          <div className="rmd-date-picker__calendar-container">
+            <div className="rmd-date-picker__header">
+              <div className="rmd-date-picker__nav">
+                <div className="rmd-date-picker__current-month">{this.state.year} {months[this.state.month]}</div>
+                <button className="nav left" onClick={this.handleClickPrevMonth} >
+                  <Icon name="keyboard_arrow_left" />
+                </button>
+                <button className="nav right" onClick={this.handleClickNextMonth} >
+                  <Icon name="keyboard_arrow_right" />
+                </button>
+              </div>
+              <div className="rmd-date-picker__header-days">
+                {dayHeaderElements}
+              </div>
+            </div>
+            {calendarElements}
           </div>
         </div>
-        {calendarElements}
+        }
       </div>
     );
   }

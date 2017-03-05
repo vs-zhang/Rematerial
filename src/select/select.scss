@@ -1,0 +1,35 @@
+.rmd-select-value {
+  cursor: pointer;
+  border-bottom: 2px solid lightgray;
+  padding: 5px;
+}
+
+.rmd-select-options {
+  position: absolute;
+  visibility: hidden;
+  border: 1px solid lightgray;
+  z-index: 2;
+  background: white;
+  &.is-open {
+    visibility: visible;
+  }
+}
+
+.rmd-select-option {
+  display: block;
+  button {
+    border: none;
+    background: transparent;
+    padding: 10px;
+    cursor: pointer;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+  }
+  &:hover {
+    button {
+      background-color: lightgray;
+      color: white;
+    }
+  }
+}

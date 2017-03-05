@@ -42,7 +42,7 @@ module.exports = {
   },
   resolve: {
     alias:{
-      rematerialize: path.resolve('./index.js'),
+      rematerial: path.resolve('./index.js'),
     },
     extensions: [ '', '.js' ]
   },

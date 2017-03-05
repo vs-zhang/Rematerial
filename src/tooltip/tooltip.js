@@ -17,6 +17,7 @@ class Tooltip extends Component {
 
     this.state = {
       open: false,
+      wrapperStyle: {},
       style: {},
     };
 
@@ -29,16 +30,16 @@ class Tooltip extends Component {
     this.setState({ open: true });
     switch (this.props.placement) {
       case 'top':
-        this.setState({ style: { bottom: targetRect.height, transformOrigin: 'bottom center', left: 0 } });
+        this.setState({ wrapperStyle: { bottom: targetRect.height, left: '50%' }, style: { transformOrigin: 'bottom center', left: '-50%' } });
         break;
       case 'left':
-        this.setState({ style: { right: targetRect.width, transformOrigin: 'right center', top: 0 } });
+        this.setState({ wrapperStyle: { right: targetRect.width, transformOrigin: 'right center' } });
         break;
       case 'right':
-        this.setState({ style: { left: targetRect.width, transformOrigin: 'left center', top: 0 } });
+        this.setState({ wrapperStyle: { left: targetRect.width, transformOrigin: 'left center' } });
         break;
       case 'bottom':
-        this.setState({ style: { top: targetRect.height, transformOrigin: 'top center', left: 0 } });
+        this.setState({ wrapperStyle: { top: targetRect.height, left: '50%' }, style: { transformOrigin: 'top center', left: '-50%' } });
         break;
       default:
         break;
@@ -60,17 +61,17 @@ class Tooltip extends Component {
       child => React.cloneElement(child, {
         onMouseEnter: this.handleMouseEnter,
         onMouseLeave: this.handleMouseLeave,
-      })
+      }),
     );
 
+    const { wrapperStyle, style } = this.state;
     return (
       <div className="rmd-tooltip-container">
         {childrenWithProps}
-        <div
-          className={tooltipClass}
-          style={this.state.style}
-        >
-          {this.props.text}
+        <div className="rmd-tooltip-wrapper" style={wrapperStyle}>
+          <div className={tooltipClass} style={style}>
+            {this.props.text}
+          </div>
         </div>
       </div>
     );

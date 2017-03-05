@@ -1,44 +1,50 @@
 import React, { Component, PropTypes } from 'react';
-import { Button, Divider } from 'rematerialize';
+import { Button, Divider } from 'rematerial';
 import { Title, Inline, CodeBlock } from './shared/';
-const TitleSource = require('!!raw!./shared/title');
+import DocumentTitle from 'react-document-title';
+import RaisedButtonExample from './examples/buttons/raised_button_example';
+import FabButtonExample from './examples/buttons/fab_button_example';
+import FlatButtonExample from './examples/buttons/flat_button_example';
+const RaisedButtonExampleSource = require('!!raw!./examples/buttons/raised_button_example');
+const FabButtonExampleSource = require('!!raw!./examples/buttons/fab_button_example');
+const FlatButtonExampleSource = require('!!raw!./examples/buttons/flat_button_example');
 
-class ButtonPage extends Component {
-  render() {
-    return (
+const ButtonPage = () => {
+  return (
+    <DocumentTitle title="Buttons">
       <div>
         <Title title="Buttons" desc="Variations on Material Design buttons."/>
-        <div>
-          <h3>Fab button</h3>
-          <Inline>
-            <Button type="fab">+</Button>
-          </Inline>
-          <Inline>
-            <Button type="fab" ripple={false}>+</Button>
-          </Inline>
-        </div>
 
-        <CodeBlock type="">
-          {TitleSource}
-        </CodeBlock>
-        <Divider />
-
-        <div>
-          <h3>Flat button</h3>
-          <Button type="flat">Button</Button>
-          <Button type="flat" ripple={false}>Button</Button>
-        </div>
+        <section>
+          <h3 className="example-title">1. Raised Button</h3>
+          <RaisedButtonExample />
+          <CodeBlock type="javascript">
+            {RaisedButtonExampleSource}
+          </CodeBlock>
+        </section>
 
         <Divider />
 
-        <div>
-          <h3>Raised button</h3>
-          <Button type="raised">Raise Button</Button>
-          <Button type="raised" ripple={false}>Raise Button</Button>
-        </div>
+        <section>
+          <h3 className="example-title">2. Fab Button</h3>
+          <FabButtonExample />
+          <CodeBlock type="javascript">
+            {FabButtonExampleSource}
+          </CodeBlock>
+        </section>
+
+        <Divider />
+
+        <section>
+          <h3 className="example-title">3. Flat Button</h3>
+          <FlatButtonExample />
+          <CodeBlock type="javascript">
+            {FlatButtonExampleSource}
+          </CodeBlock>
+        </section>
       </div>
-    )
-  }
+    </DocumentTitle>
+  )
 }
 
 export default ButtonPage;
