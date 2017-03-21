@@ -4,21 +4,21 @@ import Overlay from '../shared/overlay';
 
 class Dialog extends Component {
   static propTypes = {
-    open: PropTypes.bool,
+    isOpen: PropTypes.bool,
     actions: PropTypes.arrayOf(PropTypes.element),
     title: PropTypes.string,
     children: PropTypes.node,
   };
 
   static defaultProps = {
-    open: false,
+    isOpen: false,
     actions: [],
     title: 'Dialog',
     children: 'Content',
   };
 
   render() {
-    const { open, actions, title } = this.props;
+    const { isOpen, actions, title } = this.props;
 
     const actionsWithKey = React.Children.map(actions,
       child => React.cloneElement(child, {
@@ -28,7 +28,7 @@ class Dialog extends Component {
 
     return (
       <div>
-        {open &&
+        {isOpen &&
           <Overlay>
             <div className="rmd-dialog">
               <h4 className="rmd-dialog__title">{title}</h4>

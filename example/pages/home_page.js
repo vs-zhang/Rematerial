@@ -4,8 +4,8 @@ import { Title, CodeBlock } from './shared/';
 import DocumentTitle from 'react-document-title';
 import logo from '../asset/rematerial.svg';
 import  HomeExample from './examples/home/home_example';
+import { Link } from 'react-router';
 const HomeExampleSource = require('!!raw!./examples/home/home_example');
-import { Link } from 'react-router'
 
 class HomePage extends Component {
   render() {
@@ -13,13 +13,13 @@ class HomePage extends Component {
       <DocumentTitle title="Rematerial">
         <div className="docs-home">
           <div className="docs-home__desc">
-            <img src={logo} className="logo"/>
+            <img src={logo} className="logo" alt="logo" />
             <p className="title"> Rematerial</p>
 
             <p className="lead">Some reusable material components</p>
 
             <div className="buttons">
-              <Button type="raised"><Link to="https://github.com/vs-zhang/RMD" target="_blank">View on Github</Link></Button>
+              <Button type="raised"><Link to="https://github.com/vs-zhang/Rematerial" target="_blank">View on Github</Link></Button>
               <Button type="raised"><Link to="/components/">View Components</Link></Button>
             </div>
           </div>

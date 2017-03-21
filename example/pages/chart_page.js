@@ -12,62 +12,52 @@ const BarChartExampleSource = require('!!raw!./examples/charts/bar_chart_example
 const PieChartExampleSource = require('!!raw!./examples/charts/pie_chart_example');
 const AreaChartExampleSource = require('!!raw!./examples/charts/area_chart_example');
 
-const ChartPage = () => {
-  return (
-    <DocumentTitle title="Charts">
-      <div>
-        <Title title="Graph Charts" desc="Variations of Charts"/>
+const ChartPage = () => (
+  <DocumentTitle title="Charts">
+    <div>
+      <Title title="Graph Charts" desc="Variations of Charts"/>
 
-        <section>
-          <h3 className="example-title">1. Line Chart</h3>
-          <LineChartExample />
-          <Collapsed>
-            <CodeBlock type="javascript">
-              {LineChartExampleSource}
-            </CodeBlock>
-          </Collapsed>
-        </section>
+      <section>
+        <h3 className="example-title">1. Line Chart</h3>
+        <LineChartExample />
+        <Collapsed>
+          <CodeBlock type="javascript">
+            {LineChartExampleSource}
+          </CodeBlock>
+        </Collapsed>
+      </section>
 
-        <Divider />
+      <section>
+        <h3 className="example-title">2. Bar Chart</h3>
+        <BarChartExample />
+        <Collapsed>
+          <CodeBlock type="javascript">
+            {BarChartExampleSource}
+          </CodeBlock>
+        </Collapsed>
+      </section>
 
-        <section>
-          <h3 className="example-title">2. Bar Chart</h3>
-          <BarChartExample />
-          <Collapsed>
-            <CodeBlock type="javascript">
-              {BarChartExampleSource}
-            </CodeBlock>
-          </Collapsed>
-        </section>
+      <section>
+        <h3 className="example-title">3. Pie Chart</h3>
+        <PieChartExample />
+        <Collapsed>
+          <CodeBlock type="javascript">
+            {PieChartExampleSource}
+          </CodeBlock>
+        </Collapsed>
+      </section>
 
-        <Divider />
-
-        <section>
-          <h3 className="example-title">3. Pie Chart</h3>
-          <PieChartExample />
-          <Collapsed>
-            <CodeBlock type="javascript">
-              {PieChartExampleSource}
-            </CodeBlock>
-          </Collapsed>
-        </section>
-
-        <Divider />
-
-        <section>
-          <h3 className="example-title">4. Area Chart</h3>
-          <AreaChartExample />
-          <Collapsed>
-            <CodeBlock type="javascript">
-              {AreaChartExampleSource}
-            </CodeBlock>
-          </Collapsed>
-        </section>
-
-        <Divider />
-      </div>
-    </DocumentTitle>
-  )
-};
+      <section>
+        <h3 className="example-title">4. Area Chart</h3>
+        <AreaChartExample />
+        <Collapsed>
+          <CodeBlock type="javascript">
+            {AreaChartExampleSource}
+          </CodeBlock>
+        </Collapsed>
+      </section>
+    </div>
+  </DocumentTitle>
+);
 
 export default ChartPage;

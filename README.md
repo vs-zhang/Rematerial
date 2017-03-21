@@ -6,7 +6,7 @@ Some reusable material react components
 
 ## [Documentation](https://re-materialize.firebaseapp.com)
 
-https://re-materialize.firebaseapp.com
+https://rematerial.info/
 
 ## Development
 

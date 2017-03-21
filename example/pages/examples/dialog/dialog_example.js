@@ -5,7 +5,7 @@ class DialogExample extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false,
+      isOpen: false,
     };
 
     this.openDialog = ::this.openDialog;
@@ -13,11 +13,11 @@ class DialogExample extends Component {
   }
 
   openDialog() {
-    this.setState({ open: true });
+    this.setState({ isOpen: true });
   }
 
   closeDialog() {
-    this.setState({ open: false });
+    this.setState({ isOpen: false });
   }
 
 
@@ -32,7 +32,7 @@ class DialogExample extends Component {
         <Button type="raised" onClick={this.openDialog}>Dialog</Button>
         <Dialog
           title="Basic Dialog"
-          open={this.state.open}
+          isOpen={this.state.isOpen}
           actions={dialogActions}
         >
           <div>
@@ -40,7 +40,7 @@ class DialogExample extends Component {
           </div>
         </Dialog>
       </div>
-    )
+    );
   }
 }
 
