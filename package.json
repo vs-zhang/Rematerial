@@ -1,20 +1,20 @@
 {
   "name": "rematerial",
   "version": "0.1.0",
-  "description": "React component for material design",
+  "description": "Reusable material react components",
   "author": "Vincent Zhang <vincentzhang1209@gmail.com> ",
   "contributors": [],
-  "repository": "vs-zhang/RMD",
+  "repository": "vs-zhang/Rematerial",
   "license": "MIT",
   "engines": {
     "node": ">= 0.10"
   },
   "main": "index.js",
   "scripts": {
+    "start": "nodemon --watch ./src --delay 250ms --exec 'npm run build && npm run dev:example'",
     "test": "mocha --require ignore-styles test.setup.js src/**/*.spec.js",
     "build": "npm run clean && webpack --config webpack.config.babel.js",
     "clean": "rimraf index.js && rimraf app.css",
-    "start": "nodemon --watch ./src --delay 250ms --exec 'npm run build && npm run dev:example'",
     "dev:example": "webpack-dev-server --config ./example/webpack.config.babel.js --no-info",
     "prepublish": "npm run build && webpack --config ./example/webpack.config.babel.js",
     "lint": "eslint src"
@@ -80,7 +80,6 @@
   "keywords": [
     "material",
     "material design",
-    "mdl",
     "react"
   ]
 }
