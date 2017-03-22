@@ -1,12 +1,13 @@
 language: node_js
 node_js:
-  - "5"
+- '5'
 notifications:
   email:
     on_success: never
     on_failure: always
 deploy:
   provider: npm
-  api_key: $NPM_AUTH_TOKEN
+  api_key:
+    secure: 7OMA6mPv7XeHYbGPCa3M0migzizcAhhetQItEhMciMPXVrXYMSZhhC5l8TT7fSrni/kNXJpY05lWEEdspIQnDsWQrYi9t4nIkeuWUrRWPwg7vbzxjFTGIyuTwisHcvmMbRvyTqyODwoKFAgAjayuircbxw1LKAf2nA8Wtd3ZRRsh2TlkM0GG7h8Ok5F8GKO4+Wp+Kn/3x+v8K4G1J3Qp44+vzc1Vuf/npi2+9lmZOgQhEf69toYt12v557/7GOHjyf/Ps18kWxemXDgODGwliJg6k0ac/UzUV/wyCZLiL8CUIrU8WCm9aiHfr4AWJq2n5R9vGR7cSPZZQ5+jMNMHRhoplHHmmY/X8CHZZBCAmZdDGUcsRohCY18utH0MECXvHRREejLT+UdxubYbrnf+jej6IBe10yo1CAaBgLdwP3RDtX6RIPyUp3G5Ei67yeryF1GLdkEpydozaK7rVk42E3cR//jzZvNVCk5FJTwND76XzN58s2wgom7EYh5Ys8Ffrnjl0vy13tPcJlURJH1IjRnfu1tivw29cfAwEtMSOHw+nV2ow00BppquMv3iRJeUo0Ia1PGZuGNkNCwY/eTQTt0yT9ek25MSR5cC2k/JVkLvtcMwgY3lkj0zJPX/uGCMGbPNY360+wiJnrbMz1or17t7csPZCasu6JyU8pUCl3c=
   on:
     tags: true
