@@ -1,0 +1,25 @@
+.rmd-snackbar {
+  position: fixed;
+  bottom: 0;
+  background-color: #323232;
+  border-radius: 2px;
+  min-width: 288px;
+  max-width: 768px;
+  z-index: 3;
+  left: 50%;
+  transition: transform .25s cubic-bezier(.4,0,1,1);
+  transform: translate(-50%,80px);
+
+}
+
+.rmd-snackbar--active {
+  transform: translate(-50%,0);
+  transition: transform .25s cubic-bezier(0,0,.2,1);
+}
+
+.rmd-snackbar__text {
+  padding: 14px 12px 14px 24px;
+  vertical-align: middle;
+  color: #fff;
+  float: left;
+}

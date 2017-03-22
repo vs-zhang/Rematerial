@@ -4,6 +4,14 @@
   width: 100%;
   position: relative;
   display: flex;
+  input[type=range]::-webkit-slider-thumb {
+    background: #3f51b5;
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
 }
 
 .rmd-slider {
@@ -16,6 +24,8 @@
   color: #3f51b5;
   cursor: pointer;
   align-self: center;
+  background: 0 0;
+  z-index: 1;
 }
 
 .rmd-slider__background {
@@ -46,5 +56,3 @@
   background: rgba(0,0,0,.26);
   flex: 100;
 }
-
-

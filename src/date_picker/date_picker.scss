@@ -1,0 +1,120 @@
+.rmd-date-picker__input {
+  cursor: pointer;
+  height: 30px;
+  outline: none;
+}
+
+.rmd-date-picker {
+  position: relative;
+  display: inline-block;
+}
+
+.rmd-date-picker__calendar-container {
+  position: absolute;
+  border: 1px solid lightgray;
+  margin-top: 8px;
+}
+
+.rmd-date-picker__arrow{
+  content: '';
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid lightgray;
+  position: absolute;
+}
+
+.rmd-date-picker__header {
+  background-color: white;
+}
+
+.rmd-date-picker__current-month {
+  color: black;
+  text-align: center;
+  display: inline;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.rmd-date-picker__nav {
+  background: lightgray;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 30px;
+  overflow: hidden;
+  padding-top: 10px;
+  height: auto;
+  .nav {
+    color: gray;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    outline: none;
+    &.left {
+      float: left;
+    }
+    &.right {
+      float: right;
+    }
+  }
+}
+
+.rmd-date-picker__header-days {
+  display: flex;
+  .rmd-date-picker__header-day-name {
+    width: 36px;
+    line-height: 36px;
+    background-color: lightgray;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+  }
+}
+
+.rmd-date-picker__week {
+  display: flex;
+  background: white;
+}
+
+.rmd-date-picker__day {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  margin: 3px;
+  line-height: 30px;
+  button {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    color: lightgray;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 14px;
+  }
+  &.is-active {
+    button {
+      color: black;
+    }
+  }
+  &.is-current {
+    border: 1px solid #00A4E3;
+    border-radius: 50%;
+  }
+  &.is-selected {
+    background-color: #00A4E3;
+    border-radius: 50%;
+    button {
+      color: white;
+    }
+  }
+  &:hover {
+    background-color: #00A4E3;
+    border-radius: 50%;
+    button {
+      color: white;
+    }
+  }
+}
+
+

@@ -2,9 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
 class Button extends Component {
-
   static propTypes = {
-    children: PropTypes.element.isRequired,
+    children: PropTypes.node.isRequired,
     type: PropTypes.oneOf(['flat', 'raised', 'fab']),
     ripple: PropTypes.oneOf([true, false]),
   };
@@ -61,9 +60,9 @@ class Button extends Component {
     }
 
     const btnClass = classNames({
-      rmd__button: true,
-      'rmd__button--fab': type === 'fab',
-      'rmd__button--raised': type === 'raised',
+      'rmd-button': true,
+      'rmd-button--fab': type === 'fab',
+      'rmd-button--raised': type === 'raised',
     });
 
 

@@ -12,6 +12,9 @@ module.exports = {
     libraryTarget: 'umd'
   },
   externals: {
+    'cheerio': 'window',
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true,
     react: {
       root: 'React',
       commonjs2: 'react',
@@ -42,12 +45,8 @@ module.exports = {
         ],
         loader: 'babel',
         query: {
-          presets: ["es2015", "stage-0", "react"]
+          presets: ["react", "es2015", "stage-0"]
         }
-      },
-      {
-        test: require.resolve('material-design-lite/material.min'),
-        loader: 'exports?componentHandler'
       },
       {
         test: /\.(woff|woff2|eot|ttf)$/,

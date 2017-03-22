@@ -1,0 +1,21 @@
+.rmd-sticky {
+  overflow: auto;
+  &.is-fixed {
+    .rmd-sticky__placeholder {
+      display: block;
+    }
+    .rmd-sticky__container {
+      position: fixed;
+      top: 0;
+      z-index: 3;
+    }
+  }
+}
+
+.rmd-sticky__placeholder {
+  display: none;
+}
+
+.rmd-sticky__container {
+
+}

@@ -1,0 +1,62 @@
+.rmd-textfield {
+  position: relative;
+  display: inline-block;
+  padding: 15px 0;
+  &.is-dirty {
+    .rmd-textfield__label {
+      visibility: hidden;
+    }
+  }
+  &.is-focused {
+    .rmd-textfield__label:after {
+      visibility: visible;
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+
+.rmd-textfield--floating-label {
+  .rmd-textfield__label {
+    transition-duration: .2s;
+  }
+  &.is-focused, &.is-dirty {
+    .rmd-textfield__label {
+      top: 0;
+      color: #3f51b5;
+      font-size: 12px;
+      visibility: visible;
+    }
+  }
+}
+
+.rmd-textfield__input {
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,.12);
+  font-size: 16px;
+  padding-bottom: 4px;
+  text-align: left;
+  background: inherit;
+  outline: none;
+}
+
+.rmd-textfield__label {
+  bottom: 0;
+  top: 16px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  color: rgba(0,0,0,.26);
+  pointer-events: none;
+  &:after {
+    content: '';
+    background-color: #3f51b5;
+    position: absolute;
+    width: 10px;
+    bottom: 16px;
+    height: 2px;
+    transition-duration: .2s;
+    visibility: hidden;
+    left: 45%;
+  }
+}

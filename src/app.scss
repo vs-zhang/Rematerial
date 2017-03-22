@@ -1,7 +1,27 @@
+* {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 400;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.eot);
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+       url(../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff) format('woff'),
+       url(../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+}
+
 @import "shared/overlay";
-@import "demo/demo";
+@import "shared/paper";
+@import "icon/icon";
 @import "divider/divider";
-@import "chip/chip";
 @import "button/button";
 @import "dialog/dialog";
 @import "card/card";
@@ -9,3 +29,10 @@
 @import "toggle/checkbox";
 @import "toggle/radio_button";
 @import "tooltip/tooltip";
+@import "snackbar/snackbar";
+@import "input/input";
+@import "date_picker/date_picker";
+@import "sticky/sticky";
+@import "chart/chart";
+@import "collapsed/collapsed";
+@import "select/select";

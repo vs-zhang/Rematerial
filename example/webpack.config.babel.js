@@ -1,13 +1,22 @@
 import path from 'path';
-
+import webpack from 'webpack';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 module.exports = {
   devtool: 'cheap-module-source-map',
-  entry: {
-    example: path.join(__dirname, './index.js')
+  entry: [
+    './example/index'
+  ],
+  devServer: {
+    hot: true,
+    inline: true,
+    historyApiFallback: true,
+    contentBase: './example',
   },
   output: {
-    filename: '[name].js',
-    path: __dirname
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   module: {
     loaders: [
@@ -25,7 +34,20 @@ module.exports = {
           presets: ["es2015", "stage-0", "react"]
         }
       },
+      {
+        test: /\.(png|jpg|svg)$/,
+        loader: 'url-loader?limit=8192&name=images/[name]-[hash:6].[ext]'
+      },
     ]
   },
+  resolve: {
+    alias:{
+      rematerial: path.resolve('./index.js'),
+    },
+    extensions: [ '', '.js' ]
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+  ],
   bail: true
 };

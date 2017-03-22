@@ -1,0 +1,361 @@
+body {
+  margin: 0;
+  color: #292b2c;
+}
+
+pre, code {
+  background: #f5f5f5;
+  border-radius: 0;
+  border-color: #d8d8d8;
+  margin: 0;
+}
+
+code {
+  font-size: 90%;
+  color: #bd4147;
+  background-color: #f7f7f9;
+  border-radius: .25rem;
+}
+
+.docs-header {
+  height: 64px;
+  background-color: #0099CC;
+  color: white;
+  position: fixed;
+  width: 100%;
+  z-index: 4;
+}
+
+.docs-header__nav {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.docs-header__nav .link {
+  text-decoration: none;
+  color: white;
+  margin-right: 15px;
+  line-height: 64px;
+  vertical-align: middle;
+}
+
+.docs-header__logo {
+  width: 32px;
+  display: inline-block;
+  line-height: 40px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.docs-home {
+  min-height: 1000px;
+  padding-top: 64px;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.docs-home__desc {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.docs-home__desc .logo {
+  width: 10rem;
+}
+
+.docs-home__desc .lead {
+  font-size: 1.2rem;
+}
+
+.docs-home__desc .rmd-button {
+  padding: 0;
+}
+
+.docs-home__desc .rmd-button:hover {
+  background-color: #db3236;
+}
+
+.docs-home__desc .rmd-button .rmd-ripple {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.docs-home__desc .buttons a {
+  text-decoration: none;
+  padding: 16px 16px;
+  color: gray;
+}
+
+.docs-home__desc .buttons a:hover {
+  color: white;
+}
+
+
+.docs-home__desc .title {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 300;
+}
+
+.docs-home__examples {
+
+}
+
+.docs-home__examples .title {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+.docs-home__examples .example-container {
+  border: 1px solid lightgray;
+}
+
+.docs-home__examples .example {
+  padding: 0 20px;
+}
+
+.docs-main {
+  display: flex;
+  padding-top: 64px;
+  background-color: #F1F1F1;
+}
+
+.docs-nav {
+  width: 200px;
+  display: inline-block;
+  background-color: white;
+  position: fixed;
+  overflow-y: auto;
+  height: 100%;
+  padding-top: 15px;
+  margin: 15px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.docs-nav > li {
+  list-style: none;
+}
+
+.docs-nav > li:hover {
+  background-color: #F1F1F1;
+}
+
+.docs-nav > li:hover a {
+  color: #0099CC;
+}
+
+.docs-nav > li a {
+  padding: 8px 25px;
+  text-align: center;
+  display: block;
+  color: #55595C;
+  text-decoration: none;
+}
+
+.docs-nav > li a.active {
+  color: #0099CC;
+}
+
+.float-right {
+  float: right;
+}
+
+.docs-page {
+  background-color: #FAFAFA;
+  display: inline-block;
+  vertical-align: top;
+  padding: 20px 30px;
+  width: 100%;
+  margin: 15px 15px 15px 230px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.docs-page__title {
+  padding-bottom: 10px;
+}
+.docs-page__title h2 {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.docs-page__title p {
+  margin: 16px 0;
+}
+
+.example-title {
+  color: #6B6976;
+  font-weight: 600;
+}
+
+.docs-inline {
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+.sticky-example {
+  background: #C2185B;
+  color: white;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+  border-bottom: 1px solid lightgray;
+}
+
+.docs-sticky--yellow, .docs-sticky--red, .docs-sticky--green, .docs-sticky--blue {
+  height: 50px;
+  font-size: 16px;
+  border: 1px solid lightgray;
+  display: block;
+  padding: 10px;
+  margin-bottom: 15px;
+  width: 200px;
+  vertical-align: middle;
+  line-height: 30px;
+  color: white;
+}
+
+.docs-sticky--yellow {
+  background: #f4c20d;
+}
+
+.docs-sticky--red {
+  background: #db3236;
+}
+
+.docs-sticky--green {
+  background: #3cba54;
+}
+
+.docs-sticky--blue {
+  background: #4885ed;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #272822;
+}
+
+/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+bash+jsx */
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #f8f8f2;
+  background: none;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 1.5em 0;
+  overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #272822;
+}
+
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: slategray;
+}
+
+.token.punctuation {
+  color: #f8f8f2;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+  color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function {
+  color: #e6db74;
+}
+
+.token.keyword {
+  color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+  color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+code .tag {
+  font-size: inherit;
+  padding: 0;
+  display: inherit;
+}

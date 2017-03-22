@@ -1,16 +1,22 @@
+require('file-loader?name=[name].[ext]!./index.html');
+require('file-loader?name=[name].[ext]!./prism.js');
+require('file-loader?name=[name].[ext]!./rematerial.ico');
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import App from './app';
-
-const root = document.createElement('div');
+import Root from './root';
+const root = document.getElementById('root');
 
 function render(){
-  console.log('Re-rendering');
-  ReactDOM.render(<App />, root);
+  ReactDOM.render(<Root />, root);
 }
 
 render();
-setInterval(render, 8000);
 
-document.body.appendChild(root);
+if (module.hot) {
+  module.hot.accept('./root', () => {
+    /* eslint-disable global-require */
+    const NewRoot = require('./root').default;
+    /* eslint-enable global-require */
+    ReactDOM.render(<NewRoot />, root);
+  })
+}
