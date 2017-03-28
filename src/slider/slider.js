@@ -1,64 +1,64 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 
 class Slider extends Component {
   static propTypes = {
     min: PropTypes.number,
     max: PropTypes.number,
-    step: PropTypes.number,
+    step: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     value: PropTypes.number,
     onChange: PropTypes.func,
+    className: PropTypes.string,
+    onMouseDown: PropTypes.func,
+    onMouseUp: PropTypes.func,
   };
 
   static defaultProps = {
     min: 0,
+    className: '',
     max: 100,
     value: 0,
     step: 1,
     onChange: () => {},
+    onMouseDown: () => {},
+    onMouseUp: () => {},
   };
 
   constructor(props) {
     super(props);
-    const { min, max } = this.props;
-    const range = max - min;
-
-    this.state = {
-      value: this.props.value || max - (range / 2),
-    };
-
     this.handleChange = ::this.handleChange;
   }
 
   handleChange(e) {
     const value = parseFloat(e.target.value);
-    this.setState({ value });
-    if (this.props.onChange) {
-      this.props.onChange(value);
-    }
+    this.props.onChange(value);
   }
 
   render() {
-    const { min, max } = this.props;
+    const { min, max, onMouseUp, onMouseDown, value, step, className } = this.props;
+    const numAfterDec = 5;
     const range = max - min;
-    const v = this.state.value - min;
-    const percentage = v / range;
+    const v = (value - min).toFixed(numAfterDec);
+    const percentage = (v / range).toFixed(numAfterDec);
     const leftStyle = {
       flex: `${percentage} 1 0%`,
     };
     const rightStyle = {
       flex: `${1 - percentage} 1 0%`,
     };
-
+    const classes = classNames('rmd-slider__container', className);
     return (
-      <div className="rmd-slider__container">
+      <div className={classes}>
         <input
           type="range"
           className="rmd-slider"
           onChange={this.handleChange}
-          min={this.props.min}
-          max={this.props.max}
-          step={this.props.step}
-          value={this.state.value}
+          onMouseDown={() => { onMouseDown(); }}
+          onMouseUp={() => { onMouseUp(); }}
+          value={value}
+          min={min}
+          max={max}
+          step={step}
         />
 
         <div className="rmd-slider__background">
