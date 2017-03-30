@@ -1,3 +1,55 @@
+/**
+ * http://applemusic.tumblr.com/
+ * https://jsfiddle.net/xq56dmrh/
+ */
+
+/** Ultra Light */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 100;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-ultralight-webfont.woff");
+}
+
+/** Thin */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 200;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff");
+}
+
+/** Regular */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+/** Medium */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 500;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff");
+}
+
+/** Semi Bold */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 600;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff");
+}
+
+/** Bold */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 700;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff");
+}
+
+* {
+  font-family: 'San Francisco', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 400;
+}
+
 body {
   margin: 0;
   color: #292b2c;
@@ -93,7 +145,6 @@ code {
 .docs-home__desc .title {
   font-size: 3rem;
   margin: 0;
-  font-weight: 300;
 }
 
 .docs-home__examples {
@@ -229,6 +280,10 @@ code {
   background: #4885ed;
 }
 
+.rmd-collapsed-container .language-jsx {
+  margin-top: 0;
+}
+
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
   background: #272822;
@@ -238,6 +293,17 @@ pre[class*="language-"] {
   position: relative;
 }
 
+.rmd-video .onscreen-actions-wrapper {
+  width: 100%;
+  height: 100%;
+  border: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  background: #000;
+}
+
 .rmd-video-controls {
   position: absolute;
   bottom: 0;
@@ -245,6 +311,10 @@ pre[class*="language-"] {
 }
 
 .rmd-video-controls .video-progress-bar .rmd-slider__background-left {
+  background-color: red;
+}
+
+.rmd-video-controls .video-progress-bar .rmd-slider::-webkit-slider-thumb {
   background-color: red;
 }
 
@@ -270,6 +340,10 @@ pre[class*="language-"] {
   cursor: pointer;
 }
 
+.rmd-video-control-buttons .volume-slider .rmd-slider::-webkit-slider-thumb {
+  background-color: white;
+}
+
 .rmd-video-control-buttons .fullscreen-button {
   display: inline-block;
   border: 0;
@@ -283,6 +357,8 @@ pre[class*="language-"] {
 .rmd-video-control-buttons .elapsed-time {
   display: inline-block;
   color: white;
+  margin: 5px;
+  vertical-align: top;
 }
 
 .rmd-video-control-buttons .volume-control {
@@ -292,11 +368,7 @@ pre[class*="language-"] {
 .rmd-video-control-buttons .volume-slider {
   width: 100px;
   display: inline-block;
-}
-
-.rmd-video-control-buttons .volume-slider input[type=range]::-webkit-slider-thumb {
-  background: white;
-  visibility: hidden;
+  height: 14px;
 }
 
 .rmd-video-control-buttons .volume-slider .rmd-slider__background-left {

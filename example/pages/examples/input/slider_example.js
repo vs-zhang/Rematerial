@@ -22,10 +22,10 @@ class SliderExample extends Component {
 
     return (
       <div style={style}>
-        <Slider value={this.state.sliderValue} onChange={this.handleChangeSlider} />
+        <Slider value={this.state.sliderValue} onChange={this.handleChangeSlider} autoHideThumb />
         <p>The value of slide is {this.state.sliderValue}</p>
       </div>
-    )
+    );
   }
 }
 

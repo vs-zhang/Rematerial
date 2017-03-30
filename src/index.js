@@ -15,6 +15,7 @@ import Sticky from './sticky/sticky';
 import Icon from './icon/icon';
 import { ChartContainer, Curve, Rect, Legend, Group, Tooltip as ChartTooltip, LineChart, BarChart, AreaChart, PieChart } from './chart/index';
 import Collapsed from './collapsed/collapsed';
+import Switch from './switch/switch';
 
 export {
   Divider,
@@ -44,4 +45,5 @@ export {
   PieChart,
   Collapsed,
   Select,
+  Switch,
 };

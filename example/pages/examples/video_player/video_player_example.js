@@ -6,7 +6,7 @@ import { findDOMNode } from 'react-dom';
 const SEEK_EXPIRY_TIME = 5000;
 let n = 0;
 
-class VideoPlayer extends Component {
+class Video extends Component {
   static propTypes = {
     url: PropTypes.string.isRequired,
     isPlaying: PropTypes.bool,
@@ -199,12 +199,15 @@ class VideoPlayer extends Component {
   }
 }
 
-class VideoPlayerExample extends Component {
+class VideoPlayer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isPlaying: false,
+      isFullscreen: false,
       volume: 0.1,
+      isMute: false,
+      prevVolume: 0.1,
       played: 0,
       elapsed: 0,
       seeking: false,
@@ -213,7 +216,7 @@ class VideoPlayerExample extends Component {
       height: '100%',
     };
 
-    this.handleClick = ::this.handleClick;
+    this.handleClickPlay = ::this.handleClickPlay;
     this.handleChangeVolume = ::this.handleChangeVolume;
     this.onDuration = ::this.onDuration;
     this.onProgress = ::this.onProgress;
@@ -221,6 +224,20 @@ class VideoPlayerExample extends Component {
     this.handleMouseUpSeek = ::this.handleMouseUpSeek;
     this.onClickFullscreen = ::this.onClickFullscreen;
     this.seekTo = ::this.seekTo;
+  }
+
+  componentDidMount() {
+    document.addEventListener('fullscreenchange', this.onRequestExitFullscreen);
+    document.addEventListener('webkitfullscreenchange', this.onRequestExitFullscreen);
+    document.addEventListener('mozfullscreenchange', this.onRequestExitFullscreen);
+    document.addEventListener('MSFullscreenChange', this.onRequestExitFullscreen);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('fullscreenchange', this.onRequestExitFullscreen);
+    document.removeEventListener('webkitfullscreenchange', this.onRequestExitFullscreen);
+    document.removeEventListener('mozfullscreenchange', this.onRequestExitFullscreen);
+    document.removeEventListener('MSFullscreenChange', this.onRequestExitFullscreen);
   }
 
   seekTo(v) {
@@ -236,7 +253,7 @@ class VideoPlayerExample extends Component {
     this.player.seekTo(this.state.played);
   }
 
-  handleClick() {
+  handleClickPlay() {
     this.setState({isPlaying: !this.state.isPlaying});
   }
 
@@ -255,20 +272,39 @@ class VideoPlayerExample extends Component {
   }
 
   onClickFullscreen() {
-    this.setState({width: window.screen.width, height: window.screen.height});
-    const node = findDOMNode(this.wrapper);
-    screenfull.request(node);
+    const { isFullscreen } = this.state;
+    if (!isFullscreen) {
+      const node = findDOMNode(this.wrapper);
+      screenfull.request(node);
+    } else {
+      screenfull.exit();
+    }
   }
 
-  secondsToHms(d) {
+  onRequestExitFullscreen = () => {
+    this.setState({ isFullscreen: screenfull.isFullscreen });
+  };
+
+  onMute = () => {
+    const { isMute, volume, prevVolume } = this.state;
+    if (isMute) {
+      this.setState({ volume: prevVolume, isMute: false });
+    } else {
+      this.setState({ volume: 0, isMute: true, prevVolume: volume });
+    }
+  };
+
+  secondsToHms = (d) => {
     const h = Math.floor(d / 3600);
-    const m = Math.floor(d % 3600 / 60);
+    const m = Math.floor((d % 3600) / 60);
     const s = Math.floor(d % 3600 % 60);
-    return ((h > 0 ? h + ':' + (m < 10 ? '0' : '') : '') + m + ':' + (s < 10 ? '0' : '') + s);
-  }
+    const hours = h > 0 ? `${h}:` : '';
+    const seconds = s < 10 ? `0${s}` : s;
+    return `${hours}${m}:${seconds}`;
+  };
 
   render() {
-    const { isPlaying, volume, played, duration, width, height } = this.state;
+    const { isPlaying, isFullscreen, volume, played, duration, width, height } = this.state;
     const durationInHms = this.secondsToHms(duration);
     const elapsed = this.secondsToHms(duration * played);
     const volumeName = (v) => {
@@ -298,19 +334,25 @@ class VideoPlayerExample extends Component {
     return (
       <div className="player-wrapper" ref={(wrapper) => { this.wrapper = wrapper; }}>
         <div className="rmd-video">
-          <VideoPlayer
-            ref={(player) => { this.player = player; }}
-            url="http://easyhtml5video.com/images/happyfit2.mp4"
-            isPlaying={isPlaying}
-            volume={volume}
-            width={width}
-            height={height}
-            isShowControls={false}
-            onDuration={this.onDuration}
-            onProgress={this.onProgress}
-            onPlay={() => this.setState({ isPlaying: true })}
-            onEnded={() => this.setState({ isPlaying: false })}
-          />
+          <button
+            className="onscreen-actions-wrapper"
+            onClick={this.handleClickPlay}
+            onDoubleClick={this.onClickFullscreen}
+          >
+            <Video
+              ref={(player) => { this.player = player; }}
+              url={this.props.url}
+              isPlaying={isPlaying}
+              volume={volume}
+              width={width}
+              height={height}
+              isShowControls={false}
+              onDuration={this.onDuration}
+              onProgress={this.onProgress}
+              onPlay={() => this.setState({ isPlaying: true })}
+              onEnded={() => this.setState({ isPlaying: false })}
+            />
+          </button>
           <div className="rmd-video-controls">
             <div className="video-progress-bar">
               <Slider
@@ -321,27 +363,29 @@ class VideoPlayerExample extends Component {
                 max={1.00}
                 min={0.00}
                 step="any"
+                autoHideThumb
               />
             </div>
             <div className="rmd-video-control-buttons">
-              <button onClick={this.handleClick} className="play-button">
+              <button onClick={this.handleClickPlay} className="play-button">
                 <Icon name={isPlaying ? 'pause' : 'play_arrow'}/>
               </button>
 
-              <button className="volume-button">
-                <Icon name={volumeName(volume)}/>
+              <button className="volume-button" onClick={this.onMute}>
+                <Icon name={volumeName(volume)} />
               </button>
-              <Slider
-                className="volume-slider"
-                onChange={this.handleChangeVolume}
-                value={volume}
-                max={1.00}
-                min={0.00}
-                step={0.01}
-              />
+              <div className="volume-slider">
+                <Slider
+                  onChange={this.handleChangeVolume}
+                  value={volume}
+                  max={1.00}
+                  min={0.00}
+                  step={0.01}
+                />
+              </div>
               <p className="elapsed-time">{elapsed}/{durationInHms}</p>
               <button onClick={this.onClickFullscreen} className="fullscreen-button">
-                <Icon name="fullscreen"/>
+                <Icon name={isFullscreen ? 'fullscreen_exit' : 'fullscreen'} />
               </button>
             </div>
           </div>
@@ -351,4 +395,15 @@ class VideoPlayerExample extends Component {
   }
 }
 
+class VideoPlayerExample extends Component {
+  render() {
+    return (
+      <VideoPlayer
+        url="http://easyhtml5video.com/images/happyfit2.mp4"
+      />
+    );
+  }
+}
+
 export default VideoPlayerExample;
+
