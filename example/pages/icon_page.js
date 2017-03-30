@@ -1,7 +1,7 @@
 import React from 'react';
+import DocumentTitle from 'react-document-title';
 import { Icon } from 'rematerial';
 import { Title, CodeBlock } from './shared/';
-import DocumentTitle from 'react-document-title';
 import IconExample from './examples/icons/icons_example';
 const IconExampleSource = require('!!raw!./examples/icons/icons_example');
 
@@ -20,7 +20,7 @@ const IconPage = () => {
         </section>
       </div>
     </DocumentTitle>
-  )
+  );
 };
 
 export default IconPage;
