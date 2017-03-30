@@ -4,6 +4,7 @@ import classNames from 'classnames';
 class Slider extends Component {
   static propTypes = {
     autoHideThumb: PropTypes.bool,
+    decimalPlaces: PropTypes.number,
     min: PropTypes.number,
     max: PropTypes.number,
     step: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -16,6 +17,7 @@ class Slider extends Component {
 
   static defaultProps = {
     autoHideThumb: false,
+    decimalPlaces: 2,
     min: 0,
     className: '',
     max: 100,
@@ -54,11 +56,10 @@ class Slider extends Component {
   };
 
   render() {
-    const { min, max, value, step, className } = this.props;
-    const numAfterDec = 5;
+    const { min, max, value, step, className, decimalPlaces } = this.props;
     const range = max - min;
-    const v = (value - min).toFixed(numAfterDec);
-    const percentage = (v / range).toFixed(numAfterDec);
+    const v = (value - min).toFixed(decimalPlaces);
+    const percentage = (v / range).toFixed(decimalPlaces);
     const leftStyle = {
       flex: `${percentage} 1 0%`,
     };
