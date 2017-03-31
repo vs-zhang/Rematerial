@@ -9,7 +9,11 @@
   left: 50%;
   transition: transform .25s cubic-bezier(.4,0,1,1);
   transform: translate(-50%,80px);
-
+  .rmd-button {
+    color: #ff4081;
+    float: right;
+    margin: 5px;
+  }
 }
 
 .rmd-snackbar--active {
@@ -17,7 +21,7 @@
   transition: transform .25s cubic-bezier(0,0,.2,1);
 }
 
-.rmd-snackbar__text {
+.rmd-snackbar__body {
   padding: 14px 12px 14px 24px;
   vertical-align: middle;
   color: #fff;

@@ -12,9 +12,4 @@ describe('<Slider />', () => {
   it('should pass the correct value', () => {
     expect(slider.props().value).to.equal(50);
   });
-
-  it('should update the state value after change', () => {
-    slider.find('input').simulate('change', { target: { value: 60 } });
-    expect(slider.state().value).to.equal(60);
-  });
 });

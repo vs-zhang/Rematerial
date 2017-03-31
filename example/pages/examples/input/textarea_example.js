@@ -5,12 +5,12 @@ const TextareaExample = () => {
   return (
     <Textarea
       rows="4"
-      cols="50"
+      cols="20"
       label="Floating Textarea"
-      floatingLabel={true}
       defaultValue="Default Textarea Value"
+      floatingLabel
     />
-  )
+  );
 };
 
 export default TextareaExample;

@@ -8,11 +8,13 @@ import SliderExample from './examples/input/slider_example';
 import CheckboxExample from './examples/input/checkbox_example';
 import RadioButtonsExample from './examples/input/radio_buttons_example';
 import SelectExample from './examples/input/select_example';
+import SwitchExample from './examples/input/switch_example';
 const BasicInputSource = require('!!raw!./examples/input/input_example');
 const TextareaExampleSource = require('!!raw!./examples/input/textarea_example');
 const SliderExampleSource = require('!!raw!./examples/input/slider_example');
 const CheckboxExampleSource = require('!!raw!./examples/input/checkbox_example');
 const RadioButtonsExampleSource = require('!!raw!./examples/input/radio_buttons_example');
+const SwitchExampleSource = require('!!raw!./examples/input/switch_example');
 
 class InputPage extends Component {
   render() {
@@ -72,13 +74,23 @@ class InputPage extends Component {
           </section>
 
           <section>
-            <h3 className="example-title">6. Select</h3>
-            <SelectExample/>
+            <h3 className="example-title">6. Switch</h3>
+            <SwitchExample />
+            <Collapsed>
+              <CodeBlock type="javascript">
+                {SwitchExampleSource}
+              </CodeBlock>
+            </Collapsed>
+          </section>
+
+          <section>
+            <h3 className="example-title">7. Select</h3>
+            <SelectExample />
           </section>
 
         </div>
       </DocumentTitle>
-    )
+    );
   }
 }
 

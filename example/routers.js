@@ -16,23 +16,27 @@ import StickyPage from './pages/sticky_page';
 import IconPage from './pages/icon_page';
 import ChartPage from './pages/chart_page';
 import CollapsedPage from './pages/collapsed_page';
+import VideoPlayerPage from './pages/video_player_page';
+import MenuPage from './pages/menu_page';
 
 const routes = (
   <Route path="/" component={Layout}>
-    <IndexRoute component={HomePage}/>
+    <IndexRoute component={HomePage} />
     <Route path="/components/" component={Components}>
       <IndexRedirect to="inputs" />
-      <Route path="buttons" component={ButtonPage}/>
-      <Route path="dialogs" component={DialogPage}/>
-      <Route path="cards" component={CardPage}/>
-      <Route path="snackbar" component={SnackbarPage}/>
-      <Route path="tooltip" component={TooltipPage}/>
-      <Route path="inputs" component={InputPage}/>
-      <Route path="date_picker" component={DatePickerPage}/>
-      <Route path="sticky" component={StickyPage}/>
-      <Route path="icons" component={IconPage}/>
-      <Route path="charts" component={ChartPage}/>
-      <Route path="collapsed" component={CollapsedPage}/>
+      <Route path="buttons" component={ButtonPage} />
+      <Route path="dialogs" component={DialogPage} />
+      <Route path="cards" component={CardPage} />
+      <Route path="snackbar" component={SnackbarPage} />
+      <Route path="tooltip" component={TooltipPage} />
+      <Route path="inputs" component={InputPage} />
+      <Route path="date_picker" component={DatePickerPage} />
+      <Route path="sticky" component={StickyPage} />
+      <Route path="icons" component={IconPage} />
+      <Route path="charts" component={ChartPage} />
+      <Route path="collapsed" component={CollapsedPage} />
+      <Route path="video_player" component={VideoPlayerPage} />
+      <Route path="menus" component={MenuPage} />
     </Route>
   </Route>
 );
