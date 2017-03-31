@@ -17,6 +17,8 @@ import { ChartContainer, Curve, Rect, Legend, Group, Tooltip as ChartTooltip, Li
 import Collapsed from './collapsed/collapsed';
 import Switch from './switch/switch';
 import VideoPlayer from './video_player/video_player';
+import Paper from './shared/paper';
+import { Menu, MenuItem } from './menu/index';
 
 export {
   Divider,
@@ -48,4 +50,7 @@ export {
   Select,
   Switch,
   VideoPlayer,
+  Paper,
+  Menu,
+  MenuItem,
 };

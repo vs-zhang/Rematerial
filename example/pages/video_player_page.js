@@ -6,7 +6,7 @@ const VideoPlayerExampleSource = require('!!raw!./examples/video_player/video_pl
 
 const VideoPlayerPage = () => {
   const style = {
-    width: 500,
+    width: 550,
   };
   return (
     <DocumentTitle title="Video Player">

@@ -13,6 +13,7 @@ class Nav extends Component {
         <li><Link activeClassName="active" to="/components/dialogs">Dialogs</Link></li>
         <li><Link activeClassName="active" to="/components/inputs">Form Inputs</Link></li>
         <li><Link activeClassName="active" to="/components/icons">Icons</Link></li>
+        <li><Link activeClassName="active" to="/components/menus">Menus</Link></li>
         <li><Link activeClassName="active" to="/components/snackbar">Snackbar</Link></li>
         <li><Link activeClassName="active" to="/components/sticky">Sticky</Link></li>
         <li><Link activeClassName="active" to="/components/tooltip">Tooltip</Link></li>

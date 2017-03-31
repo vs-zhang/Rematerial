@@ -289,6 +289,32 @@ pre[class*="language-"] {
   background: #272822;
 }
 
+.docs-menu-container {
+  width: 200px;
+}
+
+.docs-open-menu {
+  width: 250px;
+}
+
+.docs-menu {
+  width: 250px;
+  height: 200px;
+}
+
+.docs-menu .rmd-menu-button {
+  color: white;
+}
+
+.docs-menu__bar {
+  background-color: #3F51B5;
+  padding: 10px;
+}
+
+.docs-menu__background {
+
+}
+
 /* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+bash+jsx */
 /**
  * okaidia theme for JavaScript, CSS and HTML

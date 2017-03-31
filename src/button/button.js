@@ -6,11 +6,17 @@ class Button extends Component {
     children: PropTypes.node.isRequired,
     type: PropTypes.oneOf(['flat', 'raised', 'fab']),
     ripple: PropTypes.oneOf([true, false]),
+    className: PropTypes.string,
+    onMouseDown: PropTypes.func,
+    onMouseUp: PropTypes.func,
   };
 
   static defaultProps = {
     type: 'flat',
     ripple: true,
+    className: '',
+    onMouseDown: () => {},
+    onMouseUp: () => {},
   };
 
   constructor(props, content) {
@@ -37,16 +43,18 @@ class Button extends Component {
       length: rippleLength,
       isRippling: true,
     });
+    this.props.onMouseDown();
   }
 
   handleMouseUp() {
     this.setState({
       isRippling: false,
     });
+    this.props.onMouseUp();
   }
 
   render() {
-    const { children, type, ripple, ...reactProps } = this.props;
+    const { children, type, ripple, className, ...reactProps } = this.props;
     let rippleContainer;
     if (ripple) {
       const style = {
@@ -63,7 +71,7 @@ class Button extends Component {
       'rmd-button': true,
       'rmd-button--fab': type === 'fab',
       'rmd-button--raised': type === 'raised',
-    });
+    }, className);
 
 
     return (
