@@ -13,7 +13,7 @@
   "scripts": {
     "start": "nodemon --watch ./src --delay 250ms --exec 'npm run build && npm run dev:example'",
     "test": "mocha --require ignore-styles test.setup.js src/**/*.spec.js",
-    "build": "npm run clean && webpack --config webpack.config.babel.js",
+    "build": "npm run lint && npm run clean && webpack --config webpack.config.babel.js",
     "clean": "rimraf index.js && rimraf app.css",
     "dev:example": "webpack-dev-server --config ./example/webpack.config.babel.js --no-info",
     "prepublish": "npm run build && webpack --config ./example/webpack.config.babel.js",
