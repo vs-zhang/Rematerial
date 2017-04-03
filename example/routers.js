@@ -23,7 +23,7 @@ const routes = (
   <Route path="/" component={Layout}>
     <IndexRoute component={HomePage} />
     <Route path="/components/" component={Components}>
-      <IndexRedirect to="inputs" />
+      <IndexRedirect to="charts" />
       <Route path="buttons" component={ButtonPage} />
       <Route path="dialogs" component={DialogPage} />
       <Route path="cards" component={CardPage} />

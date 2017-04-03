@@ -7,22 +7,25 @@ class Rect extends Component {
     y: PropTypes.number.isRequired,
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
+    className: PropTypes.string,
     base: PropTypes.shape({
       x: PropTypes.number.isRequired,
       y: PropTypes.number.isRequired,
     }).isRequired,
   };
 
+  static defaultProps = {
+    className: '',
+  };
+
   render() {
-    const { x, y, width, height, base, ...otherProps } = this.props;
+    const { x, y, width, height, base, className, ...otherProps } = this.props;
     const style = {
       transformOrigin: `${x}px ${base.y}px 0px`,
-      transform: 'scaleY(1)',
-      transition: 'transform 1500ms ease',
     };
 
     return (
-      <Group style={style}>
+      <Group style={style} className={className}>
         <path
           {...otherProps}
           x={x}

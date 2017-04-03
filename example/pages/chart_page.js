@@ -18,21 +18,21 @@ const ChartPage = () => (
       <Title title="Graph Charts" desc="Variations of Charts"/>
 
       <section>
-        <h3 className="example-title">1. Line Chart</h3>
-        <LineChartExample />
+        <h3 className="example-title">1. Bar Chart</h3>
+        <BarChartExample />
         <Collapsed>
           <CodeBlock type="javascript">
-            {LineChartExampleSource}
+            {BarChartExampleSource}
           </CodeBlock>
         </Collapsed>
       </section>
 
       <section>
-        <h3 className="example-title">2. Bar Chart</h3>
-        <BarChartExample />
+        <h3 className="example-title">2. Line Chart</h3>
+        <LineChartExample />
         <Collapsed>
           <CodeBlock type="javascript">
-            {BarChartExampleSource}
+            {LineChartExampleSource}
           </CodeBlock>
         </Collapsed>
       </section>

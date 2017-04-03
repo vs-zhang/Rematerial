@@ -3,13 +3,13 @@ import Button from '../button/button';
 
 class MenuItem extends Component {
   static propTypes = {
-    label: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
   };
 
   render() {
     return (
       <div>
-        <Button className="rmd-menu-item">{this.props.label}</Button>
+        <Button className="rmd-menu-item">{this.props.children}</Button>
       </div>
     );
   }

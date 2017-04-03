@@ -25,15 +25,17 @@ class RadioButtonsExample extends Component {
           <RadioButton
             value="first"
             label="First"
+            className="docs-radio-button"
           />
           <RadioButton
             value="second"
             label="Second"
+            className="docs-radio-button"
           />
         </RadioButtonGroup>
         <p>The value of radio group is {this.state.radioValue}</p>
       </div>
-    )
+    );
   }
 }
 
