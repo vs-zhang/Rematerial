@@ -14,7 +14,7 @@ const MenuPage = () => {
         <Title title="Menus" desc="Lists of clickable actions." />
 
         <section>
-          <h3 className="example-title">1. Open Menus</h3>
+          <h3 className="example-title">1. Menu</h3>
           <OpenMenuExample />
           <CodeBlock type="javascript">
             {OpenMenuExampleSource}
@@ -22,14 +22,12 @@ const MenuPage = () => {
         </section>
 
         <section>
-          <h3 className="example-title">2. Menus</h3>
+          <h3 className="example-title">2. Menu with trigger</h3>
           <Paper className="docs-menu">
             <div className="docs-menu__bar">
               <MenuExample />
             </div>
-            <div className="docs-menu__background">
-
-            </div>
+            <span className="docs-menu__background" />
           </Paper>
           <CodeBlock type="javascript">
             {MenuExampleSource}

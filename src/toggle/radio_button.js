@@ -6,11 +6,13 @@ class RadioButton extends Component {
   static propTypes = {
     value: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
+    className: PropTypes.string,
     name: PropTypes.string,
     checked: PropTypes.bool,
   };
 
   static defaultProps = {
+    className: '',
     name: 'options',
     checked: false,
   };
@@ -19,7 +21,7 @@ class RadioButton extends Component {
     const radioClass = classnames({
       'rmd-radio': true,
       'is-checked': this.props.checked,
-    });
+    }, this.props.className);
     const id = _.uniqueId('rmd-radio');
     return (
       <label className={radioClass} htmlFor={id}>

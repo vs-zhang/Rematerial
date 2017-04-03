@@ -13,7 +13,7 @@
   "scripts": {
     "start": "nodemon --watch ./src --delay 250ms --exec 'npm run build && npm run dev:example'",
     "test": "mocha --require ignore-styles test.setup.js src/**/*.spec.js",
-    "build": "npm run lint && npm run clean && webpack --config webpack.config.babel.js",
+    "build": "npm run clean && webpack --config webpack.config.babel.js",
     "clean": "rimraf index.js && rimraf app.css",
     "dev:example": "webpack-dev-server --config ./example/webpack.config.babel.js --no-info",
     "prepublish": "npm run build && webpack --config ./example/webpack.config.babel.js",
@@ -28,6 +28,7 @@
     "material-design-icons": "^3.0.1",
     "moment": "^2.17.1",
     "moment-range": "^3.0.0",
+    "react-addons-css-transition-group": "^15.4.2",
     "screenfull": "^3.1.0"
   },
   "peerDependencies": {

@@ -4,11 +4,11 @@ import { Menu, MenuItem, Divider } from 'rematerial';
 const OpenMenuExample = () => {
   return (
     <Menu className="docs-open-menu" isOpen>
-      <MenuItem label="Some Action" />
-      <MenuItem label="Another Action" />
+      <MenuItem>Some Action</MenuItem>
+      <MenuItem>Another Action</MenuItem>
       <Divider />
-      <MenuItem label="Yet Another Action" />
-      <MenuItem label="One More Action" />
+      <MenuItem>Yet Another Action</MenuItem>
+      <MenuItem>One More Action</MenuItem>
     </Menu>
   );
 };

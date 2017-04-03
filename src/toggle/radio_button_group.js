@@ -34,11 +34,13 @@ class RadioButtonGroup extends Component {
     const radios = React.Children.map(this.props.children, (option) => {
       const {
         value,
+        className,
         label,
         } = option.props;
       return (
         <RadioButton
           ref={value}
+          className={className}
           label={label}
           value={value}
           name={this.props.name}
