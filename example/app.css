@@ -356,11 +356,63 @@ pre[class*="language-"] {
   padding: 10px;
 }
 
-.docs-menu__background {
-
+.docs-fab-speed-dial {
+  margin: 0 auto;
 }
 
-/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+bash+jsx */
+.docs-fab-speed-dial-settings {
+  margin-bottom: 15px;
+}
+
+.docs-fab-speed-dial-settings .setting-box {
+  display: inline-block;
+  vertical-align: top;
+  width: 33.3%;
+}
+
+.docs-fab-speed-dial-settings .setting-box h4 {
+  margin: 10px 0;
+}
+
+.docs-fab-speed-dial-settings .docs-radio-button {
+  display: block;
+}
+
+.docs-prop-table-container {
+  margin: 20px 0;
+}
+
+table {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table.bordered>thead>tr {
+  border-bottom: 1px solid #d0d0d0;
+}
+
+table.bordered>thead>tr th {
+  font-weight: 600;
+}
+
+table.bordered tr {
+  border-bottom: 1px solid #d0d0d0;
+}
+thead {
+  border-bottom: 1px solid #d0d0d0;
+}
+
+td, th {
+  padding: 15px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+  border-radius: 2px;
+}
+
+  /* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+bash+jsx */
 /**
  * okaidia theme for JavaScript, CSS and HTML
  * Loosely based on Monokai textmate theme by http://www.monokai.nl/

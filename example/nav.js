@@ -13,6 +13,7 @@ class Nav extends Component {
           <MenuItem><Link activeClassName="active" to="/components/collapsed">Collapsed</Link></MenuItem>
           <MenuItem><Link activeClassName="active" to="/components/date_picker">Date Picker</Link></MenuItem>
           <MenuItem><Link activeClassName="active" to="/components/dialogs">Dialogs</Link></MenuItem>
+          <MenuItem><Link activeClassName="active" to="/components/fab_speed_dial">Fab Speed Dial</Link></MenuItem>
           <MenuItem><Link activeClassName="active" to="/components/inputs">Form Inputs</Link></MenuItem>
           <MenuItem><Link activeClassName="active" to="/components/icons">Icons</Link></MenuItem>
           <MenuItem><Link activeClassName="active" to="/components/menus">Menus</Link></MenuItem>
@@ -20,7 +21,6 @@ class Nav extends Component {
           <MenuItem><Link activeClassName="active" to="/components/sticky">Sticky</Link></MenuItem>
           <MenuItem><Link activeClassName="active" to="/components/tooltip">Tooltip</Link></MenuItem>
           <MenuItem><Link activeClassName="active" to="/components/video_player">Video Player</Link></MenuItem>
-
         </Menu>
       </aside>
     );

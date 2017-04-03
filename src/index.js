@@ -19,6 +19,7 @@ import Switch from './switch/switch';
 import VideoPlayer from './video_player/video_player';
 import Paper from './shared/paper';
 import { Menu, MenuItem } from './menu/index';
+import { FabSpeedDial, FabTrigger, FabActions } from './fab_speed_dial/index';
 
 export {
   Divider,
@@ -53,4 +54,7 @@ export {
   Paper,
   Menu,
   MenuItem,
+  FabSpeedDial,
+  FabTrigger,
+  FabActions,
 };

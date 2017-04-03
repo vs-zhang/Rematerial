@@ -1,0 +1,115 @@
+.rmd-fab-speed-dial-wrapper {
+  display: flex;
+  .rmd-fab-speed-dial {
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    z-index: 20;
+  }
+
+  .rmd-fab-speed-dial {
+    &.up {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      .rmd-fab-trigger {
+        -webkit-box-ordinal-group: 3;
+        order: 2;
+      }
+      .rmd-fab-actions {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        flex-direction: column-reverse;
+        -webkit-box-ordinal-group: 2;
+        order: 1;
+      }
+    }
+    &.down {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      .rmd-fab-trigger {
+        -webkit-box-ordinal-group: 2;
+        order: 1;
+      }
+      .rmd-fab-actions {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        -webkit-box-ordinal-group: 3;
+        order: 2;
+      }
+    }
+    &.left {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      .rmd-fab-trigger {
+        -webkit-box-ordinal-group: 3;
+        order: 2;
+      }
+      .rmd-fab-actions {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+        flex-direction: row-reverse;
+        -webkit-box-ordinal-group: 2;
+        order: 1;
+      }
+    }
+    &.right {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      .rmd-fab-trigger {
+        -webkit-box-ordinal-group: 2;
+        order: 1;
+      }
+      .rmd-fab-actions {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        flex-direction: row;
+        -webkit-box-ordinal-group: 3;
+        order: 2;
+      }
+    }
+  }
+
+  .rmd-fab-speed-dial.scale .rmd-fab-action-item {
+    transition: all .3s cubic-bezier(.55, 0, .55, .2);
+    transition-duration: .14286s;
+  }
+
+  .rmd-fab-trigger {
+    margin: 5px;
+    .rmd-button--fab {
+      background-color: rgb(255, 87, 34);
+      &:hover {
+        background-color: gray;
+        color: white
+      }
+    }
+  }
+
+  .rmd-fab-actions {
+    display: flex;
+    .rmd-button--fab {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      line-height: 40px;
+      margin: 5px;
+      background-color: #F8F8F8;
+      color: gray;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+      &:hover {
+        background-color: gray;
+        color: white;
+      }
+      .rmd-icons {
+        font-size: 20px;
+      }
+    }
+  }
+}

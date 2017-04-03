@@ -16,25 +16,19 @@ class Checkbox extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      isChecked: this.props.isChecked,
-    };
-
     this.handleCheck = ::this.handleCheck;
   }
 
   handleCheck() {
-    const value = !this.state.isChecked;
-    this.setState({ isChecked: value });
-    if (this.props.onCheck) {
-      this.props.onCheck(value);
-    }
+    const value = !this.props.isChecked;
+    this.props.onCheck(value);
   }
 
   render() {
+    const { isChecked } = this.props;
     const checkboxClass = classNames({
       'rmd-checkbox': true,
-      'is-checked': this.state.isChecked,
+      'is-checked': isChecked,
     });
     const id = _.uniqueId('rmd-check');
     return (
@@ -42,8 +36,8 @@ class Checkbox extends Component {
         <input
           type="checkbox"
           className="rmd-checkbox__input"
-          checked={this.state.isChecked}
-          value={this.state.isChecked}
+          checked={isChecked}
+          value={isChecked}
           onChange={this.handleCheck}
           id={id}
         />
