@@ -20,6 +20,7 @@ import VideoPlayer from './video_player/video_player';
 import Paper from './shared/paper';
 import { Menu, MenuItem } from './menu/index';
 import { FabSpeedDial, FabTrigger, FabActions } from './fab_speed_dial/index';
+import FabToolbar from './fab_toolbar/fab_toolbar';
 
 export {
   Divider,
@@ -57,4 +58,5 @@ export {
   FabSpeedDial,
   FabTrigger,
   FabActions,
+  FabToolbar,
 };

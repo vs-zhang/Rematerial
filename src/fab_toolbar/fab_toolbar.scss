@@ -1,0 +1,57 @@
+.rmd-fab-toolbar-wrapper {
+  position: relative;
+  display: block;
+}
+
+.rmd-fab-toolbar {
+  display: block;
+  .rmd-fab-trigger {
+    position: absolute;
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+  }
+  &.left {
+    .rmd-fab-trigger {
+      right: 0;
+    }
+    .rmd-fab-actions {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: reverse;
+      flex-direction: row-reverse;
+    }
+  }
+  &.right {
+    .rmd-fab-trigger {
+      left: 0;
+    }
+    .rmd-fab-actions {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+    }
+  }
+  &.open {
+    .rmd-fab-trigger {
+      opacity: 0;
+    }
+    .rmd-fab-actions {
+      background-color: #106CC8;
+    }
+  }
+  .rmd-fab-actions {
+    display: flex;
+    background-color: transparent;
+    transition: background-color .5s cubic-bezier(.35,0,.25,1);
+  }
+  .rmd-fab-action-item .rmd-button--fab {
+    background: transparent;
+    box-shadow: none;
+    .rmd-icons {
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      line-height: 40px;
+    }
+  }
+}

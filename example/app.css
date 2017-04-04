@@ -79,7 +79,7 @@ code {
 
 .docs-header {
   height: 64px;
-  background-color: #0099CC;
+  background-color: #106CC8;
   color: white;
   position: fixed;
   width: 100%;
@@ -131,7 +131,7 @@ code {
 }
 
 .docs-home__desc .rmd-button:hover {
-  background-color: #0099CC;
+  background-color: #106CC8;
 }
 
 .docs-home__desc .rmd-button .rmd-ripple {
@@ -330,10 +330,6 @@ pre[class*="language-"] {
   background: #272822;
 }
 
-.docs-radio-button {
-  margin-right: 10px;
-}
-
 .docs-menu-container {
   width: 200px;
 }
@@ -372,10 +368,6 @@ pre[class*="language-"] {
 
 .docs-fab-speed-dial-settings .setting-box h4 {
   margin: 10px 0;
-}
-
-.docs-fab-speed-dial-settings .docs-radio-button {
-  display: block;
 }
 
 .docs-prop-table-container {

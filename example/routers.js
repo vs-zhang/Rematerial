@@ -19,6 +19,7 @@ import CollapsedPage from './pages/collapsed_page';
 import VideoPlayerPage from './pages/video_player_page';
 import MenuPage from './pages/menu_page';
 import FabSpeedDialPage from './pages/fab_speed_dial_page';
+import FabToolbarPage from './pages/fab_toolbar_page';
 
 const routes = (
   <Route path="/" component={Layout}>
@@ -39,6 +40,7 @@ const routes = (
       <Route path="video_player" component={VideoPlayerPage} />
       <Route path="menus" component={MenuPage} />
       <Route path="fab_speed_dial" component={FabSpeedDialPage} />
+      <Route path="fab_toolbar" component={FabToolbarPage} />
     </Route>
   </Route>
 );
