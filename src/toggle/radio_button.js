@@ -24,20 +24,22 @@ class RadioButton extends Component {
     }, this.props.className);
     const id = _.uniqueId('rmd-radio');
     return (
-      <label className={radioClass} htmlFor={id}>
-        <input
-          id={id}
-          type="radio"
-          className="rmd-radio__input"
-          checked={this.props.checked}
-          name={this.props.name}
-          value={this.props.value}
-          readOnly
-        />
-        <span className="rmd-radio__label">{this.props.label}</span>
-        <span className="rmd-radio__outer-circle" />
-        <span className="rmd-radio__inner-circle" />
-      </label>
+      <div className="rmd-radio-wrapper">
+        <label className={radioClass} htmlFor={id}>
+          <input
+            id={id}
+            type="radio"
+            className="rmd-radio__input"
+            checked={this.props.checked}
+            name={this.props.name}
+            value={this.props.value}
+            readOnly
+          />
+          <span className="rmd-radio__label">{this.props.label}</span>
+          <span className="rmd-radio__outer-circle" />
+          <span className="rmd-radio__inner-circle" />
+        </label>
+      </div>
     );
   }
 }

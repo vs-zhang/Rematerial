@@ -1,0 +1,74 @@
+.rmd-progress-container {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  height: 5px;
+  transform: translate(0, 0) scale(1, 1);
+  margin: 10px 0;
+  background-color: rgb(170, 209, 249);
+}
+
+.rmd-progress-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background-color: rgb(16, 108, 200);
+  transition: transform .2s linear;
+}
+
+.rmd-progress-linear.indeterminate .rmd-progress-bar {
+  animation: rmd-progress-linear-indeterminate-scale 4s infinite, rmd-progress-linear-indeterminate-left 4s infinite;
+}
+
+@keyframes rmd-progress-linear-indeterminate-scale {
+  0% {
+    transform: scaleX(0.1);
+  }
+  25% {
+    transform: scaleX(0.3);
+  }
+  50% {
+    transform: scaleX(0.8);
+  }
+  75% {
+    transform: scaleX(0.3);
+  }
+  100% {
+    transform: scaleX(0.1);
+  }
+}
+
+@keyframes rmd-progress-linear-indeterminate-left {
+  0% {
+    left: -120%;
+  }
+  25% {
+    left: -40%;
+  }
+  50% {
+    left: 0%;
+  }
+  75% {
+    left: 50%;
+  }
+  100% {
+    left: 80%;
+  }
+}
+
+
+.rmd-progress-circular.indeterminate svg{
+  animation: progress-rotate 2000ms linear infinite;
+}
+
+@keyframes progress-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

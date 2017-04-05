@@ -13,12 +13,16 @@ import Select from './select/select';
 import DatePicker from './date_picker/date_picker';
 import Sticky from './sticky/sticky';
 import Icon from './icon/icon';
-import { ChartContainer, Curve, Rect, Legend, Group, Tooltip as ChartTooltip, LineChart, BarChart, AreaChart, PieChart } from './chart/index';
+import { ChartContainer, Curve, Arc, Rect, Legend, Group, Tooltip as ChartTooltip, LineChart, BarChart, AreaChart, PieChart } from './chart/index';
 import Collapsed from './collapsed/collapsed';
 import Switch from './switch/switch';
 import VideoPlayer from './video_player/video_player';
 import Paper from './shared/paper';
 import { Menu, MenuItem } from './menu/index';
+import { FabSpeedDial, FabTrigger, FabActions } from './fab_speed_dial/index';
+import FabToolbar from './fab_toolbar/fab_toolbar';
+import ProgressLinear from './progress/progress_linear';
+import ProgressCircular from './progress/progress_circular';
 
 export {
   Divider,
@@ -37,6 +41,7 @@ export {
   Icon,
   Sticky,
   ChartContainer,
+  Arc,
   Curve,
   Rect,
   ChartTooltip,
@@ -53,4 +58,10 @@ export {
   Paper,
   Menu,
   MenuItem,
+  FabSpeedDial,
+  FabTrigger,
+  FabActions,
+  FabToolbar,
+  ProgressCircular,
+  ProgressLinear,
 };

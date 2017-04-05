@@ -11,9 +11,15 @@ class Arc extends Component {
       startAngle: PropTypes.number.isRequired,
       value: PropTypes.number.isRequired,
     }).isRequired,
-    stroke: PropTypes.string.isRequired,
-    fill: PropTypes.string.isRequired,
-    onMouseEnter: PropTypes.func.isRequired,
+    stroke: PropTypes.string,
+    fill: PropTypes.string,
+    onMouseEnter: PropTypes.func,
+  };
+
+  static defaultProps = {
+    onMouseEnter: () => {},
+    stroke: '#FFF',
+    fill: '#000',
   };
 
   render() {

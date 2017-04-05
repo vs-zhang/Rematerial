@@ -79,7 +79,7 @@ code {
 
 .docs-header {
   height: 64px;
-  background-color: #0099CC;
+  background-color: #106CC8;
   color: white;
   position: fixed;
   width: 100%;
@@ -131,7 +131,7 @@ code {
 }
 
 .docs-home__desc .rmd-button:hover {
-  background-color: #0099CC;
+  background-color: #106CC8;
 }
 
 .docs-home__desc .rmd-button .rmd-ripple {
@@ -257,7 +257,7 @@ code {
   vertical-align: top;
   padding: 20px 30px;
   width: 100%;
-  margin: 25px 55px 25px 250px;
+  margin: 25px 55px 85px 250px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -330,10 +330,6 @@ pre[class*="language-"] {
   background: #272822;
 }
 
-.docs-radio-button {
-  margin-right: 10px;
-}
-
 .docs-menu-container {
   width: 200px;
 }
@@ -356,11 +352,59 @@ pre[class*="language-"] {
   padding: 10px;
 }
 
-.docs-menu__background {
-
+.docs-fab-speed-dial {
+  margin: 0 auto;
 }
 
-/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+bash+jsx */
+.docs-fab-speed-dial-settings {
+  margin-bottom: 15px;
+}
+
+.docs-fab-speed-dial-settings .setting-box {
+  display: inline-block;
+  vertical-align: top;
+  width: 33.3%;
+}
+
+.docs-fab-speed-dial-settings .setting-box h4 {
+  margin: 10px 0;
+}
+
+.docs-prop-table-container {
+  margin: 20px 0;
+}
+
+table {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table.bordered>thead>tr {
+  border-bottom: 1px solid #d0d0d0;
+}
+
+table.bordered>thead>tr th {
+  font-weight: 600;
+}
+
+table.bordered tr {
+  border-bottom: 1px solid #d0d0d0;
+}
+thead {
+  border-bottom: 1px solid #d0d0d0;
+}
+
+td, th {
+  padding: 15px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+  border-radius: 2px;
+}
+
+  /* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+bash+jsx */
 /**
  * okaidia theme for JavaScript, CSS and HTML
  * Loosely based on Monokai textmate theme by http://www.monokai.nl/

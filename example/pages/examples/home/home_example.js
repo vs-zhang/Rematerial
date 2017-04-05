@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button, Icon } from 'rematerial';
 
-export default  () => {
+export default () => {
   return (
     <Button type="fab">
-      <Icon name="add" />
+      <Icon name="menu" />
     </Button>
   );
 };
