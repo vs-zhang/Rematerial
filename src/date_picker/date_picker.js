@@ -112,7 +112,7 @@ class DatePicker extends Component {
   }
 
   render() {
-    const calendarElements = Object.values(this.state.calendar).map(week =>
+    const calendarElements = _.values(this.state.calendar).map(week =>
       <Week
         week={week}
         key={week.toString()}
