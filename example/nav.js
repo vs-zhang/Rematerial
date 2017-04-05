@@ -18,6 +18,7 @@ class Nav extends Component {
           <MenuItem><Link activeClassName="active" to="/components/inputs">Form Inputs</Link></MenuItem>
           <MenuItem><Link activeClassName="active" to="/components/icons">Icons</Link></MenuItem>
           <MenuItem><Link activeClassName="active" to="/components/menus">Menus</Link></MenuItem>
+          <MenuItem><Link activeClassName="active" to="/components/progress">Progress</Link></MenuItem>
           <MenuItem><Link activeClassName="active" to="/components/snackbar">Snackbar</Link></MenuItem>
           <MenuItem><Link activeClassName="active" to="/components/tooltip">Tooltip</Link></MenuItem>
           <MenuItem><Link activeClassName="active" to="/components/video_player">Video Player</Link></MenuItem>
