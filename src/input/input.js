@@ -5,22 +5,24 @@ import _ from 'lodash';
 class Input extends Component {
   static propTypes = {
     label: PropTypes.string,
-    defaultValue: PropTypes.string,
+    value: PropTypes.string,
+    onChange: PropTypes.func,
     floatingLabel: PropTypes.bool,
   };
 
   static defaultProps = {
     label: '',
     hint: '',
-    defaultValue: '',
+    onChange: () => {},
+    value: '',
     floatingLabel: false,
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.defaultValue,
-      dirty: this.props.defaultValue !== '',
+      value: this.props.value,
+      dirty: this.props.value !== '',
       focus: false,
     };
 
@@ -32,6 +34,7 @@ class Input extends Component {
   handleChangeInput(e) {
     const targetValue = e.target.value;
     this.setState({ value: targetValue, dirty: targetValue !== '' });
+    this.props.onChange(e);
   }
 
   handleFocusInput() {
