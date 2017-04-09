@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import LogoImg from './asset/rematerial.svg';
+import LogoImg from './asset/logo.svg';
 
 const Header = () => (
   <div className="docs-header">
